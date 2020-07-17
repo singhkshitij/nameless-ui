@@ -1,0 +1,32 @@
+.details-container{
+    min-height: 90vh;
+    min-width: 100%;
+}
+
+.floating-card{
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    height: 60%;
+    width: 60%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 2px 16px;
+    backdrop-filter: blur(10px);
+}
+
+.details-action{
+    float:left; 
+    min-width: 100%;
+    height: 80%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-title{
+    min-width: 100%;
+    height: 10%;
+    text-align: center;
+}

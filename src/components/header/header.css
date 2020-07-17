@@ -1,0 +1,11 @@
+.page-header{
+    min-height: 8vh;
+    min-width: 100vw;
+}
+
+.back-button{
+    margin-left: 4px;
+    margin-top: 5px;
+    height: 5vh;
+    width: 5vw;
+}
