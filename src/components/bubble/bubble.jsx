@@ -23,7 +23,7 @@ export default class Bubble extends Component {
 
         <div class="bubble sender first">No, that's full CSS3!</div>
         <div class="bubble sender middle">
-          (Take a look to the 'JS' section of this Pen... it's empty! 😃
+          (Take a look to the 'JS' section of this Pen... it's empty! 
         </div>
         <div class="bubble sender last">And it's also really lightweight!</div>
 
