@@ -1,11 +1,23 @@
 .page-header{
-    min-height: 8vh;
+    min-height: 6vh;
     min-width: 100vw;
+    background-color: #fff;
+    z-index: 100;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
 }
 
 .back-button{
+    float: left;
     margin-left: 4px;
     margin-top: 5px;
     height: 5vh;
-    width: 5vw;
+    width: 6vw;
+    padding-left: 5px;
+}
+
+.header-details{
+    float: left;
+    width: 80vw;
+    height: 6vh;
+    vertical-align: center;
 }

@@ -1,0 +1,9 @@
+.hostname {
+  display:inline-block;
+  min-height: 6vh;
+  vertical-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}

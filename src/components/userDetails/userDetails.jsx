@@ -1,14 +1,13 @@
 import React, { Component } from "react";
+import './userDetails.css';
 
-export default class SubHeading extends Component {
+export default class userDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       text: this.props.text,
-      iconUrl: this.props.withIcon,
       size: this.props.size,
       color: this.props.color,
-      capitalise: this.props.capitalise,
     };
   }
 
@@ -19,22 +18,15 @@ export default class SubHeading extends Component {
           textAlign: "center",
           verticalAlign: "middle",
           display: "inline-block",
+          height: "100%",
         }}
       >
-        {this.state.iconUrl && (
-          <img
-            alt="logo"
-            src={this.state.iconUrl}
-            style={{ width: "100px", height: "100px" }}
-          />
-        )}
         <span
+          className="hostname"
           style={{
-            fontSize: this.props.size,
-            margin: "20px 10px 20px 10px",
             color: this.state.color || "#000",
             textTransform: this.state.capitalise ? "uppercase" : "capitalize",
-            fontFamily: "Tahoma, Geneva, sans-serif",
+            fontSize: this.state.size || "3vh"
           }}
         >
           {this.state.text}
