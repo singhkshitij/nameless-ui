@@ -5,6 +5,7 @@ import Button from '../../../components/button/button';
 import { Link } from 'react-router-dom';
 import { FcPortraitMode } from 'react-icons/fc';
 import { MdClearAll } from 'react-icons/md';
+import { nanoid } from 'nanoid'
 import './take.css'
 
 export default class Take extends Component {
@@ -28,7 +29,7 @@ export default class Take extends Component {
                 outlined>
                     <Input value={this.state.hostName} onChange={(e) => this.setState({hostName: e.currentTarget.value})} />
                 </TextField>
-                <Link to="/room">
+                <Link to={"/room/" + nanoid(10)}>
                       <Button text="Create room"/>
                 </Link>
             </div>  
