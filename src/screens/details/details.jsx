@@ -16,9 +16,9 @@ export default class Details extends Component {
 
   lpStyle = {
     background: 'url("/assets/images/bg.png")',
-    backgroundPosition: "50%",
+    backgroundPosition: "100%",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
+    backgroundSize: "100% 100%",
     backgroundColor: "#ecf0f1",
     overflowX: "hidden",
     minWidth: "100vw",
