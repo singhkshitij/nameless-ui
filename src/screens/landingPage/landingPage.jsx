@@ -11,6 +11,7 @@ export default class Dashboard extends Component {
     background: 'url("/assets/images/background.svg")',
     backgroundPosition: "100%",
     backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
     backgroundSize: "cover",
     backgroundColor: "#ebfbff",
     overflowX: "hidden",
