@@ -12,8 +12,23 @@ export default class Give extends Component {
     super(props);
     this.state = {
       roomId: "",
-      hostName: "Jayat"
+      hostName: "Jayat",
+      linkEnabled: false,
     };
+  }
+
+  validateRoomName(e) {
+    if (e.currentTarget.value) {
+      this.setState({
+        roomId: e.currentTarget.value,
+        linkEnabled: true,
+      });
+    } else {
+      this.setState({
+        roomId: e.currentTarget.value,
+        linkEnabled: false,
+      });
+    }
   }
 
   render() {
@@ -29,9 +44,10 @@ export default class Give extends Component {
         >
           <Input
             value={this.state.roomId}
-            onChange={(e) => this.setState({ roomId: e.currentTarget.value })}
+            onChange={(e) => this.validateRoomName(e)}
           />
         </TextField>
+        {this.state.linkEnabled && (
         <Link
           to={{
             pathname: "/room/" + this.state.roomId,
@@ -42,6 +58,7 @@ export default class Give extends Component {
         >
           <Button text="Join room" />
         </Link>
+        )}
       </div>
     );
   }

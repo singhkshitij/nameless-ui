@@ -13,7 +13,22 @@ export default class Take extends Component {
     super(props);
     this.state = {
       hostName: "",
+      linkEnabled: false,
     };
+  }
+
+  validateRoomName(e) {
+    if (e.currentTarget.value) {
+      this.setState({
+        hostName: e.currentTarget.value,
+        linkEnabled: true,
+      });
+    } else {
+      this.setState({
+        hostName: e.currentTarget.value,
+        linkEnabled: false,
+      });
+    }
   }
 
   render() {
@@ -29,19 +44,21 @@ export default class Take extends Component {
         >
           <Input
             value={this.state.hostName}
-            onChange={(e) => this.setState({ hostName: e.currentTarget.value })}
+            onChange={(e) => this.validateRoomName(e)}
           />
         </TextField>
-        <Link
-          to={{
-            pathname: "/room/" + nanoid(10),
-            state: {
-              name: this.state.hostName,
-            },
-          }}
-        >
-          <Button text="Create room" />
-        </Link>
+        {this.state.linkEnabled && (
+          <Link
+            to={{
+              pathname: "/room/" + nanoid(10),
+              state: {
+                name: this.state.hostName,
+              },
+            }}
+          >
+            <Button text="Create room" />
+          </Link>
+        )}
       </div>
     );
   }
