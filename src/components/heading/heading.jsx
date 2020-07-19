@@ -14,7 +14,7 @@ export default class Heading extends Component {
     render() {
         return (
             <div style={{ textAlign: 'center',verticalAlign: 'middle',display:'inline-block'}}>
-                {this.state.iconUrl && <img src={this.state.iconUrl} style={{width:'100px',height:'100px'}}/>}
+                {this.state.iconUrl && <img alt="logo" src={this.state.iconUrl} style={{width:'100px',height:'100px'}}/>}
                 <span style={{fontSize:'3.5em',fontWeight:'bold', margin: '20px 10px 20px 10px', color: '#6f84ef', fontFamily:'"Trebuchet MS", Helvetica, sans-serif'}}>{this.state.text}</span>
             </div>
           
