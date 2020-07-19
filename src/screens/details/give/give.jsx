@@ -37,7 +37,7 @@ export default class Give extends Component {
   }
 
   checkRoomExists() {
-    axios.get('http://localhost:8080/api/v1/session/'+this.state.roomId) 
+    axios.get('http://localhost:8080/api/v1/room/'+this.state.roomId) 
       .then(res => {
         if (res.data.data) {
           this.setState({ redirect: true });
