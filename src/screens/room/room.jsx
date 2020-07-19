@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/header/header";
 import ChatContent from "./chatContent/chatContent";
 import MessageBox from "./messageBox/messageBox";
+import Constants from "../../constants";
 import './room.css'
 
 export default class Room extends Component {
@@ -44,7 +45,9 @@ export default class Room extends Component {
   }
 
   componentDidMount() {
-      const ws = new WebSocket('ws://localhost:8080/' + this.state.uid +"?" + this.state.name)
+      let host = Constants.wsHost;
+      const url = process.env[host] + "/" + this.state.uid +"?" + this.state.name;
+      const ws = new WebSocket(url)
       ws.onopen = () => {
         // on connecting, do nothing but log it to the console
         console.log('Connection established !');

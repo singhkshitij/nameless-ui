@@ -5,7 +5,8 @@ import Button from "../../../components/button/button";
 import { Redirect } from "react-router-dom";
 import { FcKey } from "react-icons/fc";
 import { MdClearAll } from "react-icons/md";
-import axios from 'axios';
+import axios from "axios";
+import Constants from "../../../constants";
 import "./give.css";
 
 export default class Give extends Component {
@@ -17,14 +18,14 @@ export default class Give extends Component {
       hostName: "Jayat",
       linkEnabled: false,
       redirect: false,
-      error: ""
+      error: "",
     };
   }
 
   validateRoomName(e) {
     if (e.currentTarget.value) {
       this.setState({
-        error:'',
+        error: "",
         roomId: e.currentTarget.value,
         linkEnabled: true,
       });
@@ -37,16 +38,19 @@ export default class Give extends Component {
   }
 
   checkRoomExists() {
-    axios.get('http://localhost:8080/api/v1/room/'+this.state.roomId) 
-      .then(res => {
+    let host = Constants.serverHostKey;
+    const url = process.env[host] + "/api/v1/room/" + this.state.roomId;
+   
+    axios
+      .get( url)
+      .then((res) => {
         if (res.data.data) {
           this.setState({ redirect: true });
         } else {
           this.setState({ error: "😕 No such room exists !", redirect: false });
         }
-      })
+      });
     //fetch room details from server
-    
   }
 
   render() {
@@ -55,7 +59,7 @@ export default class Give extends Component {
         <TextField
           label="Enter room Id"
           helperText={<HelperText>Fun Begins!</HelperText>}
-          onTrailingIconSelect={() => this.setState({ error:'',roomId: "" })}
+          onTrailingIconSelect={() => this.setState({ error: "", roomId: "" })}
           leadingIcon={<FcKey />}
           trailingIcon={<MdClearAll />}
           outlined
