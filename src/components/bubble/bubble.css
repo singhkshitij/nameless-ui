@@ -1,16 +1,70 @@
+.discussion{
+  min-width: 100%;
+  max-height: 80vh;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .container {
   bottom: 0;
 }
 
-.bubbleContainer {
-  width: "100%";
-  display: "flex";
+.bubble-container {
+  display: flex;
 }
 
 .bubble {
-  border: "0.5px solid black";
-  border-radius: "10px";
-  margin: "5px";
-  padding: "10px";
-  display: "inline-block";
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  min-width: 10vw;
+  display: inline-block;
+}
+
+.right-bubble {
+  margin-left: 100px;
+  margin-right: 10px;
+  justify-content: flex-end !important;
+}
+.left-bubble {
+  margin-left: 10px;
+  margin-right: 100px;
+  justify-content: flex-start !important;
+}
+
+.entry-bubble {
+  justify-content: center !important;
+}
+
+.left-bubble-aligned {
+  color: #000;
+  background-color: #fff;
+  box-shadow: 0 5px 5px -2px rgba(0,0,0,.2);
+}
+
+.right-bubble-aligned {
+  color: #fff;
+  background-color: #3498db;
+  box-shadow: 0 5px 5px -2px rgba(0,0,0,.2);
+}
+
+.entry-bubble-aligned {
+  color: #fff;
+  border-radius: 5px;
+  background-color: #95a5a6;
+  text-align: center !important;
+}
+
+.bubble-dt{
+  font-size: 12px;
+  text-align: right !important;
+}
+
+.left-bubble-aligned .bubble-dt{
+  color: #7f8c8d;
+}
+
+.right-bubble-aligned .bubble-dt{
+  color: #EEEEEE;
 }

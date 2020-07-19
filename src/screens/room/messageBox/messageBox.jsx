@@ -8,8 +8,14 @@ export default class MessageBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: ''
+      message: '',
+      messageHook: this.props.messageHook
     };
+  }
+
+  sendMessage(){
+    this.props.messageHook(this.state.message)
+    this.setState({message: ''})
   }
 
   render() {
@@ -30,7 +36,7 @@ export default class MessageBox extends Component {
                         <FaRegSmileWink />
                     </div>
                     <div className="action-button">
-                        <MdSend />
+                        <MdSend onClick={()=> this.sendMessage()}/>
                     </div>
                 </IconContext.Provider>
             </div>
