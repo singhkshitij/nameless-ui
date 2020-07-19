@@ -77,7 +77,7 @@ export default class Room extends Component {
   render() {
     return (
       <div className="room" style={this.lpStyle}>
-        <Header chatPage hostName="kshitij"/>
+        <Header chatPage hostName={this.state.name}/>
         <ChatContent data={this.state.data}/>
         <MessageBox messageHook={this.addMessage}/>
       </div>

@@ -5,6 +5,7 @@ import Button from "../../../components/button/button";
 import { Redirect } from "react-router-dom";
 import { FcKey } from "react-icons/fc";
 import { MdClearAll } from "react-icons/md";
+import axios from 'axios';
 import "./give.css";
 
 export default class Give extends Component {
@@ -36,12 +37,16 @@ export default class Give extends Component {
   }
 
   checkRoomExists() {
+    axios.get('http://localhost:8080/api/v1/session/'+this.state.roomId) 
+      .then(res => {
+        if (res.data.data) {
+          this.setState({ redirect: true });
+        } else {
+          this.setState({ error: "😕 No such room exists !", redirect: false });
+        }
+      })
     //fetch room details from server
-    if (false) {
-      this.setState({ redirect: true });
-    } else {
-      this.setState({ error: "😕 No such room exists !", redirect: false });
-    }
+    
   }
 
   render() {

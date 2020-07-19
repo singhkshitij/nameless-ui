@@ -12,7 +12,7 @@ export default class Header extends Component {
     this.state = {
       link: this.props.link,
       chatPage: this.props.chatPage,
-      hostName: this.props.hostName,
+      name: this.props.hostName,
     };
   }
 
@@ -26,8 +26,8 @@ export default class Header extends Component {
         </Link>
         {this.state.chatPage && (
           <div className="header-details">
-            <Gravatar text="Kshitij" size='4vh'/>
-            <UserDetails text="Kshitij" size="3vh" color="#34495e"/>
+            <Gravatar text={this.state.name} size='4vh'/>
+            <UserDetails text={this.state.name} size="3vh" color="#34495e"/>
           </div>
         )}
       </div>
