@@ -8,11 +8,11 @@ import { Link } from "react-router-dom";
 
 export default class Dashboard extends Component {
   lpStyle = {
-    background: 'url("/assets/images/bg.png")',
+    background: 'url("/assets/images/background.svg")',
     backgroundPosition: "100%",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "100% 100%",
-    backgroundColor: "#ecf0f1",
+    backgroundSize: "cover",
+    backgroundColor: "#ebfbff",
     overflowX: "hidden",
     minWidth: "100vw",
     minHeight: "100vh",
@@ -55,9 +55,9 @@ export default class Dashboard extends Component {
         <div className="right">
           <div className="centered">
             <img
-              src="/assets/images/feedback.png"
+              src="/assets/images/users.svg"
               alt="illustration"
-              style={{ width: "120%", height: "120%" }}
+              style={{ width: "140%", height: "140%" }}
             />
           </div>
         </div>

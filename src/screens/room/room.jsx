@@ -67,14 +67,10 @@ export default class Room extends Component {
   }
 
   lpStyle = {
-    background: 'url("/assets/images/bg.png")',
-    backgroundPosition: "100%",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "100% 100%",
-    backgroundColor: "#ecf0f1",
-    overflowX: "hidden",
-    minWidth: "100vw",
-    minHeight: "100vh",
+    background: 'url("/assets/images/pattern.png")',
+    backgroundRepeat: "repeat",
+    backgroundColor: "#fff",
+    overflowX: "hidden"
   };
 
   render() {

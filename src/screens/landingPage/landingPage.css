@@ -10,19 +10,19 @@
 /* Control the left side */
 .left {
   height: 100%;
-  width: 60%;
+  width: 50%;
   position: fixed;
   z-index: 1;
   top: 0;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 10px;
   left: 0;
 }
 
 /* Control the right side */
 .right {
   height: 100%;
-  width: 40%;
+  width: 50%;
   position: fixed;
   z-index: 1;
   top: 0;

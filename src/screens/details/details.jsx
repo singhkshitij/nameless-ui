@@ -19,7 +19,7 @@ export default class Details extends Component {
     backgroundPosition: "100%",
     backgroundRepeat: "no-repeat",
     backgroundSize: "100% 100%",
-    backgroundColor: "#ecf0f1",
+    backgroundColor: "#FAFAFA",
     overflowX: "hidden",
     minWidth: "100vw",
     minHeight: "100vh",
