@@ -56,7 +56,6 @@ export default class Dashboard extends Component {
           <div className="centered">
             <img
               src="/assets/images/feedback.png"
-              alt="illustration"
               style={{ width: "120%", height: "120%" }}
             />
           </div>
