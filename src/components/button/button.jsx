@@ -17,11 +17,17 @@ export default class Button extends Component {
 
   render() {
     return (
+      this.props.callback ?
       <button
         className="pure-material-button-contained"
         style={this.style}
-        onClick={() => this.props.onClick()}
-      >
+        onClick={() => this.props.callback()}>
+        {this.state.text}
+      </button>
+      :
+      <button
+        className="pure-material-button-contained"
+        style={this.style}>
         {this.state.text}
       </button>
     );

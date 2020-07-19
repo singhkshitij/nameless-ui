@@ -10,6 +10,7 @@ import "./give.css";
 export default class Give extends Component {
   constructor(props) {
     super(props);
+    this.checkRoomExists = this.checkRoomExists.bind(this);
     this.state = {
       roomId: "",
       hostName: "Jayat",
@@ -17,7 +18,6 @@ export default class Give extends Component {
       redirect: false,
       error: ""
     };
-    this.checkRoomExists = this.checkRoomExists.bind(this);
   }
 
   validateRoomName(e) {
@@ -61,7 +61,7 @@ export default class Give extends Component {
           />
         </TextField>
         {this.state.linkEnabled && (
-          <Button text="Join room" onClick={this.checkRoomExists} />
+          <Button text="Join room" callback={this.checkRoomExists} />
         )}
         {this.state.redirect && (
           <Redirect
