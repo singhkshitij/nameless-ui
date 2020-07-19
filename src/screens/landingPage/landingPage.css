@@ -1,4 +1,4 @@
-.lp-content{
+.lp-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6,36 +6,46 @@
   height: 80%;
   margin: -100px 0 0 -100px;
 }
-  
-  /* Control the left side */
+
+/* Control the left side */
+.left {
+  height: 100%;
+  width: 60%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  height: 100%;
+  width: 40%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  right: 0;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+@media screen and (min-width: 0px) and (max-width: 720px) {
   .left {
     height: 100%;
-    width: 60%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-    left: 0;
+    width: 100%;
   }
-  
-  /* Control the right side */
   .right {
-    height: 100%;
-    width: 40%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-    right: 0;
+    display: none;
   }
-  
-  /* If you want the content centered horizontally and vertically */
-  .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
+}
