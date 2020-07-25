@@ -37,11 +37,11 @@ export default class Give extends Component {
     }
   }
 
-  checkRoomExists = async () => {
+  checkRoomExists() {
     let host = Constants.serverHostKey;
     const url = process.env[host] + "/api/v1/room/" + this.state.roomId;
    
-    await axios
+    axios
       .get( url)
       .then((res) => {
         if (res.data.data.active) {
