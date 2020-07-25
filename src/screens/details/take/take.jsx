@@ -36,7 +36,7 @@ export default class Take extends Component {
     }
   }
 
-   createRoom() {
+   createRoom = async () => {
     const uid = nanoid(10);
     //Move logic to create room here and pass as state object
     //Send room info to server to store data
@@ -44,7 +44,7 @@ export default class Take extends Component {
     let host = Constants.serverHostKey;
     const url = process.env[host] + "/api/v1/room/" + uid;
 
-    axios
+    await axios
       .post(url, { host : this.state.hostName })
       .then((res) => {
         if (res.data.status === "success") {
