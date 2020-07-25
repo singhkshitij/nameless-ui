@@ -17,6 +17,7 @@
     "react-markdown": "^4.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-scrollbar": "^0.5.6",
     "react-websocket": "^2.1.0"
   },
   "scripts": {

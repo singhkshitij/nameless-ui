@@ -1,11 +1,43 @@
 import React, { Component } from "react";
+import ScrollArea from "react-scrollbar";
 import "./bubble.css";
 
 export default class Bubble extends Component {
-
-  getDateTime(dt){
+  getDateTime(dt) {
     var date = new Date(dt);
-    return date.toLocaleString();
+    var dateNow = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    var strTime = hours + ":" + minutes + " " + ampm;
+    if (dateNow.toLocaleDateString() === date.toLocaleDateString()) {
+      return strTime;
+    } else {
+      const months = [
+        "JAN",
+        "FEB",
+        "MAR",
+        "APR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AUG",
+        "SEP",
+        "OCT",
+        "NOV",
+        "DEC",
+      ];
+      let formatted_date =
+        date.getDate() +
+        "-" +
+        months[date.getMonth()] +
+        " " +
+        strTime;
+      return formatted_date;
+    }
   }
 
   getBubbleClassNameBasedOnTypeAndOwner(obj) {
@@ -31,9 +63,13 @@ export default class Bubble extends Component {
             (this.getBubbleClassNameBasedOnTypeAndOwner(obj) + "-aligned")
           }
         >
-          {obj.owner !== this.props.owner && obj.type !== "entry" && <div className="bubble-owner">{obj.owner}</div>}
+          {obj.owner !== this.props.owner && obj.type !== "entry" && (
+            <div className="bubble-owner">{obj.owner}</div>
+          )}
           <div>{obj.data}</div>
-          {obj.type !== "entry" && <div className="bubble-dt">{this.getDateTime(obj.dt)}</div>}
+          {obj.type !== "entry" && (
+            <div className="bubble-dt">{this.getDateTime(obj.dt)}</div>
+          )}
         </div>
       </div>
     ));
@@ -41,6 +77,10 @@ export default class Bubble extends Component {
   }
 
   render() {
-    return <div className="discussion">{this.getChatBubbles()}</div>;
+    return (
+      <div className="discussion">
+        <ScrollArea>{this.getChatBubbles()}</ScrollArea>
+      </div>
+    );
   }
 }
