@@ -37,20 +37,22 @@ export default class Give extends Component {
     }
   }
 
-  checkRoomExists() {
+  checkRoomExists = async () => {
     let host = Constants.serverHostKey;
     const url = process.env[host] + "/api/v1/room/" + this.state.roomId;
    
-    axios
+    await axios
       .get( url)
       .then((res) => {
-        if (res.data.data) {
+        if (res.data.data.active) {
           this.setState({ redirect: true });
         } else {
-          this.setState({ error: "😕 No such room exists !", redirect: false });
+          this.setState({ error: "😕 No such room exists !" });
         }
-      });
-    //fetch room details from server
+      })
+      .catch(error => {
+        this.setState({ error: "😕 Failed to get room info !"});
+    });;
   }
 
   render() {

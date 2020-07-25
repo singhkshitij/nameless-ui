@@ -24,7 +24,7 @@ export default class Dashboard extends Component {
       <div className="landing-page" style={this.lpStyle}>
         <div className="left">
           <div className="centered">
-            <Heading text="nameless" withIcon="/assets/images/anonymous.png" />
+            <Heading text="nameléss" withIcon="/assets/images/anonymous.png" />
             <Spacer space="20px" />
             <SubHeading text="An anonymous feedback messenger" size="1.5em" />
             <Spacer space="20px" />

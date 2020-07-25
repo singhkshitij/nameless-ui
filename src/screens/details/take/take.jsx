@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import TextField, { HelperText, Input } from "@material/react-text-field";
 import "@material/react-text-field/dist/text-field.css";
 import Button from "../../../components/button/button";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { FcPortraitMode } from "react-icons/fc";
 import { MdClearAll } from "react-icons/md";
 import { nanoid } from "nanoid";
+import axios from "axios";
+import Constants from "../../../constants";
 import "./take.css";
 
 export default class Take extends Component {
@@ -14,6 +16,9 @@ export default class Take extends Component {
     this.state = {
       hostName: "",
       linkEnabled: false,
+      redirect: false,
+      error: "",
+      roomId: "",
     };
   }
 
@@ -29,6 +34,34 @@ export default class Take extends Component {
         linkEnabled: false,
       });
     }
+  }
+
+   createRoom = async () => {
+    const uid = nanoid(10);
+    //Move logic to create room here and pass as state object
+    //Send room info to server to store data
+    //remove redis functionality from service
+    let host = Constants.serverHostKey;
+    const url = process.env[host] + "/api/v1/room/" + uid;
+
+    await axios
+      .post(url, { host : this.state.hostName })
+      .then((res) => {
+        if (res.data.status === "success") {
+          this.setState({ roomId: uid, redirect: true });
+        } else {
+          this.setState({ error: "😕 Room creation failed, please retry !" });
+        }
+      })
+      .catch((error) => {
+        this.setState({
+          error: "😕 Room creation failed, please retry !",
+        });
+      });
+  }
+
+  getRoomID() {
+    return this.state.roomId;
   }
 
   render() {
@@ -48,17 +81,19 @@ export default class Take extends Component {
           />
         </TextField>
         {this.state.linkEnabled && (
-          <Link
+          <Button text="Create room" callback={this.createRoom} />
+        )}
+        {this.state.redirect && (
+          <Redirect
             to={{
-              pathname: "/room/" + nanoid(10),
+              pathname: "/room/" + this.getRoomID(),
               state: {
                 name: this.state.hostName,
               },
             }}
-          >
-            <Button text="Create room" />
-          </Link>
+          />
         )}
+        <p className="give-error">{this.state.error} </p>
       </div>
     );
   }
