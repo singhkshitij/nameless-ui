@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import ScrollArea from "react-scrollbar";
+import ScrollToBottom from 'react-scroll-to-bottom';
 import "./bubble.css";
 
 export default class Bubble extends Component {
+  
   getDateTime(dt) {
     var date = new Date(dt);
     var dateNow = new Date();
@@ -48,6 +49,11 @@ export default class Bubble extends Component {
     }
   }
 
+  updateScroll(){
+    var element = document.getElementsByClassName("scrollarea-content");
+    element.scrollTop = element.scrollHeight;
+  }
+
   getChatBubbles() {
     const chatBubbles = this.props.data.map((obj, i = 0) => (
       <div
@@ -79,7 +85,8 @@ export default class Bubble extends Component {
   render() {
     return (
       <div className="discussion">
-        <ScrollArea>{this.getChatBubbles()}</ScrollArea>
+        <ScrollToBottom scrollViewClassName="scrollarea-content"
+        mode="bottom">{this.getChatBubbles()}</ScrollToBottom>
       </div>
     );
   }
