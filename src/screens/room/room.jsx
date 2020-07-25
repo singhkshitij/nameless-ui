@@ -66,16 +66,9 @@ export default class Room extends Component {
       }
   }
 
-  lpStyle = {
-    background: 'url("/assets/images/pattern.png")',
-    backgroundRepeat: "repeat",
-    backgroundColor: "#fff",
-    overflowX: "hidden"
-  };
-
   render() {
     return (
-      <div className="room" style={this.lpStyle}>
+      <div className="room">
         <Header chatPage hostName={this.state.name}/>
         <ChatContent data={this.state.data}/>
         <MessageBox messageHook={this.addMessage}/>
