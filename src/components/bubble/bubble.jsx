@@ -3,6 +3,11 @@ import "./bubble.css";
 
 export default class Bubble extends Component {
 
+  getDateTime(dt){
+    var date = new Date(dt);
+    return date.toLocaleString();
+  }
+
   getBubbleClassNameBasedOnTypeAndOwner(obj) {
     if (obj.type === "entry") {
       return "entry-bubble";
@@ -28,7 +33,7 @@ export default class Bubble extends Component {
         >
           {obj.owner !== this.props.owner && obj.type !== "entry" && <div className="bubble-owner">{obj.owner}</div>}
           <div>{obj.data}</div>
-          {obj.type !== "entry" && <div className="bubble-dt">{obj.dt}</div>}
+          {obj.type !== "entry" && <div className="bubble-dt">{this.getDateTime(obj.dt)}</div>}
         </div>
       </div>
     ));
