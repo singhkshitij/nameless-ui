@@ -90,7 +90,6 @@ export default class Room extends Component {
 
       this.ws.onmessage = evt => {
           const message = JSON.parse(evt.data)
-          console.log(message.message);
           this.addMessage(message.type,message.message)
       }
 
@@ -110,7 +109,7 @@ export default class Room extends Component {
     return (
       <div className="room">
         <Header chatPage hostName={this.state.name}/>
-        <ChatContent data={this.state.data}/>
+        <ChatContent data={this.state.data} owner={this.state.name}/>
         <MessageBox messageHook={this.sendMessage}/>
       </div>
     );

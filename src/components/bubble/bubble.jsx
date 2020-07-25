@@ -7,7 +7,7 @@ export default class Bubble extends Component {
     if (obj.type === "entry") {
       return "entry-bubble";
     } else {
-      return obj.owner === "me" ? "right-bubble" : "left-bubble";
+      return obj.owner === this.props.owner ? "right-bubble" : "left-bubble";
     }
   }
 
@@ -26,6 +26,7 @@ export default class Bubble extends Component {
             (this.getBubbleClassNameBasedOnTypeAndOwner(obj) + "-aligned")
           }
         >
+          {obj.owner !== this.props.owner && obj.type !== "entry" && <div className="bubble-owner">{obj.owner}</div>}
           <div>{obj.data}</div>
           {obj.type !== "entry" && <div className="bubble-dt">{obj.dt}</div>}
         </div>

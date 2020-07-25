@@ -68,3 +68,10 @@
 .right-bubble-aligned .bubble-dt{
   color: #EEEEEE;
 }
+
+.bubble-owner{
+  color: #8e44ad;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}

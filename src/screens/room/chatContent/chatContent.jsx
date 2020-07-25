@@ -6,7 +6,7 @@ export default class ChatContent extends Component {
   render() {
     return (
       <div className="chat-content">
-         <Bubble data={this.props.data}/>
+         <Bubble data={this.props.data} owner={this.props.owner}/>
       </div>
     );
   }
