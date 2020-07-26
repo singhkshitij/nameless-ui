@@ -26,8 +26,8 @@ export default class Header extends Component {
         </Link>
         {this.state.chatPage && (
           <div className="header-details">
-            <Gravatar text={this.state.name} size='4vh'/>
-            <UserDetails text={this.state.name} size="3vh" color="#34495e"/>
+            <Gravatar text={this.state.name} size='30px'/>
+            <UserDetails text={this.state.name} size="20px" color="#34495e"/>
           </div>
         )}
       </div>
