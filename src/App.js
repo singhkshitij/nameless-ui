@@ -31,11 +31,9 @@ function App() {
   return (
     <main>
       <Switch>
-        <ErrorBoundary>
           <Route path="/" component={LandingPage} exact />
           <Route path="/details" component={DetailsPage} />
           <Route path="/room/:url" component={Room} />
-        </ErrorBoundary>
       </Switch>
     </main>
   );
