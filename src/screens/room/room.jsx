@@ -49,6 +49,8 @@ export default class Room extends Component {
   }
 
   getChatHistory = async () => {
+
+    console.log("inside chat history");
     let host = Constants.serverHostKey;
     const url = process.env[host] + "/api/v1/chats/" + this.state.uid;
    
@@ -64,14 +66,15 @@ export default class Room extends Component {
       .catch(error => {
         this.setState({ error: "😕 Failed to get chat history !"});
     });;
+    console.log("coming out of chat history");
   }
   
   establishWsConnection(){
-
+      console.log("WS connection getting established");
       let host = Constants.wsHost;
       const url = process.env[host] + "/" + this.state.uid +"?" + this.state.name;
       this.ws = new WebSocket(url)
-      console.log("Ws init", this.ws)
+      
       this.ws.onopen = () => {
         console.log('Connection established !');
       }
@@ -90,6 +93,8 @@ export default class Room extends Component {
 
   componentDidMount() {
       this.getChatHistory();
+      console.log("Got chat history");
+
       this.establishWsConnection();
   }
 
