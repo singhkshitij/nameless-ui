@@ -1,5 +1,4 @@
 .chat-content{
-    overflow: scroll;
     max-height: 82vh;
     min-height: 82vh;
     min-width: 100vw;
