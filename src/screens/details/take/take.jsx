@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TextField, { HelperText, Input } from "@material/react-text-field";
+import SubHeading from "../../../components/subHeading/subHeading";
 import "@material/react-text-field/dist/text-field.css";
 import Button from "../../../components/button/button";
 import { Redirect } from "react-router-dom";
@@ -8,6 +9,7 @@ import { MdClearAll } from "react-icons/md";
 import { nanoid } from "nanoid";
 import axios from "axios";
 import Constants from "../../../constants";
+import LoadingIndicator from "../../../components/loadingIndicator/loadingIndicator";
 import "./take.css";
 
 export default class Take extends Component {
@@ -19,6 +21,7 @@ export default class Take extends Component {
       redirect: false,
       error: "",
       roomId: "",
+      loading: false,
     };
   }
 
@@ -36,7 +39,9 @@ export default class Take extends Component {
     }
   }
 
-   createRoom = async () => {
+  createRoom = async () => {
+    await this.setState({ loading: true });
+
     const uid = nanoid(10);
     //Move logic to create room here and pass as state object
     //Send room info to server to store data
@@ -46,56 +51,74 @@ export default class Take extends Component {
     const url = process.env[host] + "/api/v1/room/" + uid;
 
     await axios
-      .post(url, { host : this.state.hostName })
+      .post(url, { host: this.state.hostName })
       .then((res) => {
         if (res.data.status === "success") {
-          self.setState({ roomId: uid, redirect: true });
+          self.setState({ roomId: uid, redirect: true, loading: false });
         } else {
-          self.setState({ error: "😕 Room creation failed, please retry !" });
+          self.setState({
+            error: "😕 Room creation failed, please retry !",
+            loading: false,
+          });
         }
       })
       .catch((error) => {
         self.setState({
-          error: "😕 Room creation failed, please retry !"
+          error: "😕 Room creation failed, please retry !",
+          loading: false,
         });
       });
-  }
+  };
 
   getRoomID() {
     return this.state.roomId;
   }
 
+  renderContent() {
+    if (this.state.loading) {
+      return <LoadingIndicator />;
+    }
+
+    return [
+      <div className="details-title">
+        <SubHeading
+          text="Create a room"
+          size="1.8em"
+          color="#909090"
+          capitalise
+        />
+      </div>,
+      <TextField
+        label="Host name"
+        helperText={<HelperText>Be original!</HelperText>}
+        onTrailingIconSelect={() => this.setState({ hostName: "" })}
+        leadingIcon={<FcPortraitMode />}
+        trailingIcon={<MdClearAll />}
+        outlined
+      >
+        <Input
+          value={this.state.hostName}
+          onChange={(e) => this.validateRoomName(e)}
+        />
+      </TextField>,
+      this.state.linkEnabled && (
+        <Button text="Create room" callback={this.createRoom} />
+      ),
+      this.state.redirect && (
+        <Redirect
+          to={{
+            pathname: "/room/" + this.getRoomID(),
+            state: {
+              name: this.state.hostName,
+            },
+          }}
+        />
+      ),
+      <p className="give-error">{this.state.error} </p>,
+    ];
+  }
+
   render() {
-    return (
-      <div className="details-action">
-        <TextField
-          label="Host name"
-          helperText={<HelperText>Be original!</HelperText>}
-          onTrailingIconSelect={() => this.setState({ hostName: "" })}
-          leadingIcon={<FcPortraitMode />}
-          trailingIcon={<MdClearAll />}
-          outlined
-        >
-          <Input
-            value={this.state.hostName}
-            onChange={(e) => this.validateRoomName(e)}
-          />
-        </TextField>
-        {this.state.linkEnabled && (
-          <Button text="Create room" callback={this.createRoom} />
-        )}
-        {this.state.redirect && (
-          <Redirect
-            to={{
-              pathname: "/room/" + this.getRoomID(),
-              state: {
-                name: this.state.hostName,
-              },
-            }}
-          />
-        )}
-        <p className="give-error">{this.state.error} </p>
-      </div>
-    );
+    return <div className="details-action">{this.renderContent()}</div>;
   }
 }

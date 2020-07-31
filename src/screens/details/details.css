@@ -1,33 +1,36 @@
-.details-container{
-    min-height: 90vh;
-    min-width: 100%;
+.details-container {
+  min-height: 90vh;
+  min-width: 100%;
 }
 
-.floating-card{
-    position: absolute;
-    top: 25%;
-    left: 20%;
-    height: 55%;
-    width: 60%;
-    background-color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    padding: 2px 16px;
-    backdrop-filter: blur(10px);
+.floating-card {
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  height: 55%;
+  width: 60%;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  padding: 2px 16px;
+  backdrop-filter: blur(10px);
 }
 
-.details-action{
-    margin-top: 10vh;
-    height: 80%;
-    text-align: center;
+.details-action {
+  text-align: center;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  right: 15%;
+  bottom: 15%;
 }
 
-.details-title{
-    min-width: 100%;
-    min-height: 10%;
-    text-align: center;
+.details-title {
+  text-align: center;
+  margin-bottom: 5vh;
+  text-transform: capitalize;
 }
 
-.mdc-text-field-helper-line{
-    justify-content: center;
+.mdc-text-field-helper-line {
+  justify-content: center;
 }

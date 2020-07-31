@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import SubHeading from "../../components/subHeading/subHeading";
-import Spacer from "../../components/spacer/spacer";
 import Header from "../../components/header/header";
 import Take from "../../screens/details/take/take";
 import Give from "../../screens/details/give/give";
@@ -31,22 +29,6 @@ export default class Details extends Component {
         <Header />
         <div className="details-container">
           <div className="floating-card">
-            <div className="details-title">
-              <Spacer space="20px" />
-              {this.state.takeFeedback ?
-              <SubHeading
-                text="Create a room"
-                size="1.8em"
-                color="#909090"
-                capitalise
-              />:
-              <SubHeading
-                text="Join room"
-                size="1.8em"
-                color="#909090"
-                capitalise
-              />}
-            </div>
             {this.state.takeFeedback ? <Take /> : <Give />}
           </div>
         </div>
