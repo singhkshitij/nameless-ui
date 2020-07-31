@@ -1,5 +1,6 @@
 .message-box{
-    height: 12vh;
+    max-height: 12vh;
+    min-height: 12vh;
     min-width: 100vw;
     background-color: #fff;
     border-top: 0.5px solid rgba(0, 0, 0, 0.3);
@@ -36,14 +37,16 @@
 }
 
 .msg-textarea{
-    width: 85%;
+    width: 100%;
     outline: none;
     resize: none;
     overflow: auto;
     border: none;
-    font-size: 1.2em;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-
+    font-size: 1em;
+    padding-top:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font: inherit;
+    height: 9vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
