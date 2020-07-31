@@ -52,7 +52,7 @@ export default class Room extends Component {
     this.ws = new WebSocket(url);
 
     this.ws.onopen = () => {
-      console.log("WS connection established !");
+      //console.log("WS connection established !");
     };
 
     this.ws.onmessage = (evt) => {
@@ -61,7 +61,7 @@ export default class Room extends Component {
     };
 
     this.ws.onclose = () => {
-      console.log("disconnected");
+      //console.log("disconnected");
       this.establishWsConnection();
     };
   }
