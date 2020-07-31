@@ -49,7 +49,7 @@ export default class Room extends Component {
     const url =
       process.env[host] + "/" + this.state.uid + "?" + this.state.name;
 
-    console.log("Host ", host, url)  
+    console.log("Host ", process.env[host], url)  
     this.ws = new WebSocket(url);
 
     this.ws.onopen = () => {
