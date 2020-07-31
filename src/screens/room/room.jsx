@@ -62,7 +62,7 @@ export default class Room extends Component {
 
     this.ws.onclose = () => {
       console.log("disconnected");
-      // automatically try to reconnect on connection loss
+      this.establishWsConnection();
     };
   }
 
