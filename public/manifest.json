@@ -1,6 +1,6 @@
 {
-  "short_name": "Nameless",
-  "name": "Anonymous feedback platform",
+  "short_name": "nameless",
+  "name": "Get anonymous realtime feedbacks",
   "icons": [
     {
       "src": "favicon.png",
