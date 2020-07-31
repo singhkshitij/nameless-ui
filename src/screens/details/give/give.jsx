@@ -40,18 +40,19 @@ export default class Give extends Component {
   checkRoomExists = async () => {
     let host = Constants.serverHostKey;
     const url = process.env[host] + "/api/v1/room/" + this.state.roomId;
+    var self = this;
    
     await axios
       .get( url)
       .then((res) => {
         if (res.data.data.active) {
-          this.setState({ redirect: true });
+          self.setState({ redirect: true });
         } else {
-          this.setState({ error: "😕 No such room exists !" });
+          self.setState({ error: "😕 No such room exists !" });
         }
       })
       .catch(error => {
-        this.setState({ error: "😕 Failed to get room info !"});
+        self.setState({ error: "😕 Failed to get room info !"});
     });;
   }
 

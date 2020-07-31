@@ -41,6 +41,7 @@ export default class Take extends Component {
     //Move logic to create room here and pass as state object
     //Send room info to server to store data
     //remove redis functionality from service
+    var self = this;
     let host = Constants.serverHostKey;
     const url = process.env[host] + "/api/v1/room/" + uid;
 
@@ -48,13 +49,13 @@ export default class Take extends Component {
       .post(url, { host : this.state.hostName })
       .then((res) => {
         if (res.data.status === "success") {
-          this.setState({ roomId: uid, redirect: true });
+          self.setState({ roomId: uid, redirect: true });
         } else {
-          this.setState({ error: "😕 Room creation failed, please retry !" });
+          self.setState({ error: "😕 Room creation failed, please retry !" });
         }
       })
       .catch((error) => {
-        this.setState({
+        self.setState({
           error: "😕 Room creation failed, please retry !"
         });
       });
