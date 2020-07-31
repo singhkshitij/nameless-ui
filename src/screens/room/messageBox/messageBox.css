@@ -1,6 +1,6 @@
 .message-box{
-    max-height: 12vh;
-    min-height: 12vh;
+    max-height: 10vh;
+    min-height: 10vh;
     min-width: 100vw;
     background-color: #fff;
     border-top: 0.5px solid rgba(0, 0, 0, 0.3);
@@ -46,7 +46,6 @@
     padding-top:5px;
     padding-left: 10px;
     padding-right: 10px;
-    font: inherit;
     height: 9vh;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
