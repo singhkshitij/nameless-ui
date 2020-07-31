@@ -71,7 +71,7 @@ export default class Room extends Component {
       let host = Constants.wsHost;
       const url = process.env[host] + "/" + this.state.uid +"?" + this.state.name;
       this.ws = new WebSocket(url)
-      
+      console.log("Ws init", this.ws)
       this.ws.onopen = () => {
         console.log('Connection established !');
       }
