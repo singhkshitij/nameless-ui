@@ -23,7 +23,7 @@
 .header-details{
     margin-left: 10px;
     float: left;
-    width: 80vw;
+    max-width: 80vw;
     min-height: 40px;
     max-height: 6vh; 
     display: flex;
@@ -32,7 +32,7 @@
 }
 
 .header-actions{
-    float: left;
+    float: right;
     width: 10vw;
     min-height: 40px;
     max-height: 6vh; 
