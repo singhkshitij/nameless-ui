@@ -137,6 +137,9 @@ export default class Room extends Component {
       .then((res) => {
         if (res.data.data.active) {
           self.setState({ redirect: true, loading: false });
+          if (this.state.name !== "") {
+            this.getChatHistory();
+          }
         } else {
           self.setState({ error: "😕 No such room exists !", loading: false });
         }
