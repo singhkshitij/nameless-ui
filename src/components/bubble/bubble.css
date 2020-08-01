@@ -1,8 +1,8 @@
 .discussion{
   min-width: 100%;
-  max-height: 80vh;
-  min-height: 80vh;
-  padding-top: 10px;
+  max-height: 79vh;
+  min-height: 79vh;
+  padding-top: 1vh;
   overflow: scroll;
 }
 
@@ -50,9 +50,9 @@
 }
 
 .entry-bubble-aligned {
-  color: #fff;
+  color: #27ae60;
+  font-weight: bold;
   border-radius: 5px;
-  background-color: #95a5a6;
   text-align: center !important;
 }
 

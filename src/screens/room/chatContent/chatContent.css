@@ -1,6 +1,6 @@
-.chat-content{
-    max-height: 81vh;
-    min-height: 81vh;
-    min-width: 100vw;
-    background-color: #f3fbfd;
+.chat-content {
+  max-height: 80vh;
+  min-height: 80vh;
+  min-width: 100vw;
+  background-color: #f3fbfd;
 }
