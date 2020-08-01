@@ -24,7 +24,7 @@
     margin-left: 10px;
     float: left;
     max-width: 80vw;
-    min-height: 40px;
+    min-height: 45px;
     max-height: 6vh; 
     display: flex;
     justify-content: left;
@@ -34,9 +34,10 @@
 .header-actions{
     float: right;
     width: 10vw;
-    min-height: 40px;
+    min-height: 45px;
     max-height: 6vh; 
     text-align: right;
+    padding-right: 2vw;
 }
 
 .MuiList-padding {
