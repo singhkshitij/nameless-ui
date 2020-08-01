@@ -4,6 +4,13 @@ import ChatContent from "./chatContent/chatContent";
 import MessageBox from "./messageBox/messageBox";
 import Constants from "../../constants";
 import axios from "axios";
+import TextField, { HelperText, Input } from "@material/react-text-field";
+import SubHeading from "../../components/subHeading/subHeading";
+import "@material/react-text-field/dist/text-field.css";
+import Button from "../../components/button/button";
+import { FcPortraitMode } from "react-icons/fc";
+import { MdClearAll } from "react-icons/md";
+
 import "./room.css";
 
 export default class Room extends Component {
@@ -11,12 +18,26 @@ export default class Room extends Component {
     super(props);
     this.sendMessage = this.sendMessage.bind(this);
     this.state = {
-      uid: this.props.match.params.url || "abc",
-      name: this.props.location.state.name,
+      uid: this.props.match.params.url,
+      name: this.props.location.state ? this.props.location.state.name : "",
       data: [],
       error: "",
+      redirect: this.props.location.state ? true : false,
     };
   }
+
+  lpStyle = {
+    background: 'url("/assets/images/background.svg")',
+    backgroundPosition: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover",
+    backgroundColor: "#ebfbff",
+    overflowX: "hidden",
+    minWidth: "100vw",
+    minHeight: "100vh",
+    userSelect: "none",
+  };
 
   ws = null;
 
@@ -86,15 +107,86 @@ export default class Room extends Component {
   };
 
   componentDidMount() {
-    this.getChatHistory();
+    if (this.state.name !== "") {
+      this.getChatHistory();
+    }
+  }
+
+  validateName(e) {
+    if (e.currentTarget.value) {
+      this.setState({
+        error: "",
+        name: e.currentTarget.value,
+      });
+    } else {
+      this.setState({
+        name: e.currentTarget.value,
+      });
+    }
+  }
+
+  checkRoomExists = async () => {
+    await this.setState({ loading: true });
+
+    let host = Constants.serverHostKey;
+    const url = process.env[host] + "/api/v1/room/" + this.state.uid;
+    var self = this;
+
+    await axios
+      .get(url)
+      .then((res) => {
+        if (res.data.data.active) {
+          self.setState({ redirect: true, loading: false });
+        } else {
+          self.setState({ error: "😕 No such room exists !", loading: false });
+        }
+      })
+      .catch((error) => {
+        self.setState({
+          error: "😕 Failed to get room info !",
+          loading: false,
+        });
+      });
+  };
+
+  getRoomDetails() {
+    return [
+      <div className="details-title">
+        <SubHeading
+          text="Enter details to join room"
+          size="1.5em"
+          color="#909090"
+        />
+      </div>,
+      <TextField
+        label="Your name"
+        helperText={<HelperText>Try something funny...</HelperText>}
+        onTrailingIconSelect={() => this.setState({ name: "" })}
+        leadingIcon={<FcPortraitMode />}
+        trailingIcon={<MdClearAll />}
+        outlined
+      >
+        <Input value={this.state.name} onChange={(e) => this.validateName(e)} />
+      </TextField>,
+      this.state.name && (
+        <Button text="Enter room" callback={this.checkRoomExists} />
+      ),
+      <p className="give-error">{this.state.error} </p>,
+    ];
   }
 
   render() {
-    return (
+    return this.state.name !== "" && this.state.redirect ? (
       <div className="room">
         <Header chatPage hostName={this.state.name} />
         <ChatContent data={this.state.data} owner={this.state.name} />
         <MessageBox messageHook={this.sendMessage} />
+      </div>
+    ) : (
+      <div className="details-page" style={this.lpStyle}>
+        <div className="floating-card">
+          <div className="details-action">{this.getRoomDetails()}</div>
+        </div>
       </div>
     );
   }

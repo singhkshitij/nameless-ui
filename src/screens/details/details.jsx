@@ -13,11 +13,12 @@ export default class Details extends Component {
   }
 
   lpStyle = {
-    background: 'url("/assets/images/bg.png")',
+    background: 'url("/assets/images/background.svg")',
     backgroundPosition: "100%",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "100% 100%",
-    backgroundColor: "#FAFAFA",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover",
+    backgroundColor: "#ebfbff",
     overflowX: "hidden",
     minWidth: "100vw",
     minHeight: "100vh",
