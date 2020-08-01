@@ -83,9 +83,8 @@ export default class Take extends Component {
       <div className="details-title">
         <SubHeading
           text="Create a room"
-          size="1.8em"
+          size="1.5em"
           color="#909090"
-          capitalise
         />
       </div>,
       <TextField

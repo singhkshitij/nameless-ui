@@ -71,7 +71,7 @@ export default class Give extends Component {
 
     return [
       <div className="details-title">
-        <SubHeading text="Join room" size="1.8em" color="#909090" capitalise />
+        <SubHeading text="Join room" size="1.5em" color="#909090" />
       </div>,
       <TextField
         label="Enter room Id"

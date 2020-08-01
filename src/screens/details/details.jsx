@@ -21,6 +21,7 @@ export default class Details extends Component {
     overflowX: "hidden",
     minWidth: "100vw",
     minHeight: "100vh",
+    userSelect: 'none'
   };
 
   render() {

@@ -25,6 +25,7 @@ export default class Dashboard extends Component {
     overflowX: "hidden",
     minWidth: "100vw",
     minHeight: "100vh",
+    userSelect: 'none'
   };
 
   componentDidMount() {
@@ -53,7 +54,7 @@ export default class Dashboard extends Component {
           <Spacer space="20px" />
           <SubHeading text="An anonymous feedback messenger" size="1.5em" />
           <Spacer space="20px" />
-          <SubHeading text="Always free | Open source ❤️" size="1em" />
+          <SubHeading text="👩🏻‍💻- Realtime - Free - Open source - 👨🏻‍💻" size="1em" color="#263238"/>
           <Spacer space="20px" />
           <Link
             to={{

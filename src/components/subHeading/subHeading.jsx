@@ -33,7 +33,7 @@ export default class SubHeading extends Component {
             fontSize: this.props.size,
             margin: "20px 10px 20px 10px",
             color: this.state.color || "#000",
-            textTransform: this.state.capitalise ? "uppercase" : "capitalize",
+            textTransform: this.state.capitalise ? "uppercase" : "none",
             fontFamily: "Tahoma, Geneva, sans-serif",
           }}
         >

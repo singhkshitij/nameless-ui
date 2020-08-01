@@ -14,13 +14,14 @@
     float: left;
     margin-left: 4px;
     margin-top: 5px;
-    min-height: 30px;
-    max-height: 5vh;
+    min-height: 35px;
+    max-height: 6vh;
     width: 6vw;
     padding-left: 5px;
 }
 
 .header-details{
+    margin-left: 10px;
     float: left;
     width: 80vw;
     min-height: 40px;
@@ -28,4 +29,12 @@
     display: flex;
     justify-content: left;
     align-items: center;
+}
+
+.header-actions{
+    float: left;
+    width: 10vw;
+    min-height: 40px;
+    max-height: 6vh; 
+    text-align: right;
 }
