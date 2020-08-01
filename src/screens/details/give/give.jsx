@@ -3,7 +3,7 @@ import TextField, { HelperText, Input } from "@material/react-text-field";
 import "@material/react-text-field/dist/text-field.css";
 import Button from "../../../components/button/button";
 import { Redirect } from "react-router-dom";
-import { FcKey } from "react-icons/fc";
+import { FcKey, FcPortraitMode } from "react-icons/fc";
 import { MdClearAll } from "react-icons/md";
 import axios from "axios";
 import Constants from "../../../constants";
@@ -17,7 +17,7 @@ export default class Give extends Component {
     this.checkRoomExists = this.checkRoomExists.bind(this);
     this.state = {
       roomId: "",
-      hostName: "Jayat",
+      hostName: "",
       linkEnabled: false,
       redirect: false,
       error: "",
@@ -30,19 +30,30 @@ export default class Give extends Component {
       this.setState({
         error: "",
         roomId: e.currentTarget.value,
-        linkEnabled: true,
       });
     } else {
       this.setState({
         roomId: e.currentTarget.value,
-        linkEnabled: false,
+      });
+    }
+  }
+
+  validateHostName(e) {
+    if (e.currentTarget.value) {
+      this.setState({
+        error: "",
+        hostName: e.currentTarget.value,
+      });
+    } else {
+      this.setState({
+        hostName: e.currentTarget.value,
       });
     }
   }
 
   checkRoomExists = async () => {
     await this.setState({ loading: true });
-    
+
     let host = Constants.serverHostKey;
     const url = process.env[host] + "/api/v1/room/" + this.state.roomId;
     var self = this;
@@ -75,7 +86,7 @@ export default class Give extends Component {
       </div>,
       <TextField
         label="Enter room Id"
-        helperText={<HelperText>Fun Begins!</HelperText>}
+        helperText={<HelperText></HelperText>}
         onTrailingIconSelect={() => this.setState({ error: "", roomId: "" })}
         leadingIcon={<FcKey />}
         trailingIcon={<MdClearAll />}
@@ -86,7 +97,20 @@ export default class Give extends Component {
           onChange={(e) => this.validateRoomName(e)}
         />
       </TextField>,
-      this.state.linkEnabled && (
+      <TextField
+        label="Your name"
+        helperText={<HelperText>Try something funny..</HelperText>}
+        onTrailingIconSelect={() => this.setState({ hostName: "" })}
+        leadingIcon={<FcPortraitMode />}
+        trailingIcon={<MdClearAll />}
+        outlined
+      >
+        <Input
+          value={this.state.hostName}
+          onChange={(e) => this.validateHostName(e)}
+        />
+      </TextField>,
+      this.state.roomId && this.state.hostName && (
         <Button text="Join room" callback={this.checkRoomExists} />
       ),
       this.state.redirect && (

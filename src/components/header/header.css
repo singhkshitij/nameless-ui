@@ -38,3 +38,7 @@
     max-height: 6vh; 
     text-align: right;
 }
+
+.MuiList-padding {
+    padding: 0px !important;
+}
