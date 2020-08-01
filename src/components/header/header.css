@@ -1,45 +1,62 @@
-.page-header{
-    min-height: 45px;
-    max-height: 8vh;
-    min-width: 100vw;
-    background-color: #fff;
-    position: relative;
-    z-index: 1000;
-    -webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,.2);
-    -moz-box-shadow:0px 0px 20px 2px rgba(0,0,0,.2);
-    box-shadow: 0px 0px 20px 2px rgba(0,0,0,.2);
+.page-header {
+  min-height: 45px;
+  max-height: 8vh;
+  min-width: 100vw;
+  background-color: #fff;
+  position: relative;
+  z-index: 1000;
+  -webkit-box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.2);
 }
 
-.back-button{
-    float: left;
-    margin-left: 4px;
-    margin-top: 5px;
-    min-height: 35px;
-    max-height: 6vh;
-    width: 6vw;
-    padding-left: 5px;
+.back-button {
+  float: left;
+  margin-left: 4px;
+  margin-top: 5px;
+  min-height: 35px;
+  max-height: 6vh;
+  width: 6vw;
+  padding-left: 5px;
 }
 
-.header-details{
-    margin-left: 10px;
-    float: left;
-    max-width: 80vw;
-    min-height: 45px;
-    max-height: 6vh; 
-    display: flex;
-    justify-content: left;
-    align-items: center;
+.header-details {
+  margin-left: 10px;
+  float: left;
+  max-width: 80vw;
+  min-height: 45px;
+  max-height: 6vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
-.header-actions{
-    float: right;
-    width: 10vw;
-    min-height: 45px;
-    max-height: 6vh; 
-    text-align: right;
-    padding-right: 2vw;
+.header-actions {
+  float: right;
+  width: 10vw;
+  min-height: 45px;
+  max-height: 6vh;
+  text-align: right;
+  padding-right: 2vw;
 }
 
 .MuiList-padding {
-    padding: 0px !important;
+  padding: 0px !important;
+}
+
+.invite-button {
+  background-color: #6f84ef;
+  color: #fff;
+  font-size: 15px;
+  height: 30px;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  display: inline-block;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
 }

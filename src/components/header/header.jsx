@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import "./header.css";
 import { IconContext } from "react-icons";
-import { IoMdArrowBack, IoMdExit,IoMdDownload } from "react-icons/io";
+import { IoMdArrowBack, IoMdExit, IoMdDownload } from "react-icons/io";
 import UserDetails from "../../components/userDetails/userDetails";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import IconMenu from "@bit/take2.components.icon-menu";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import Gravatar from "../avatar/avatar";
 
@@ -19,9 +22,17 @@ export default class Header extends Component {
 
   render() {
     const items = [
-      { icon: <IoMdDownload />, label: "Export", onClick: () => {console.log("export clicked")}},
+      {
+        icon: <IoMdDownload />,
+        label: "Export",
+        onClick: () => {
+          console.log("export clicked");
+        },
+      },
       { icon: <IoMdExit />, label: "Exit" },
     ];
+
+    const notify = () => toast.success("Invite link has been copied !");
 
     return (
       <div className="page-header">
@@ -38,8 +49,18 @@ export default class Header extends Component {
             <UserDetails text={this.state.name} size="20px" color="#34495e" />
           </div>,
           <div className="header-actions">
+            <CopyToClipboard text={window.location.href} onCopy={notify}>
+            <button class="invite-button">Invite</button>
+            </CopyToClipboard>
             <IconMenu items={items} />
           </div>,
+          <ToastContainer
+            position="top-right"
+            autoClose={1000}
+            hideProgressBar
+            newestOnTop={true}
+            closeOnClick
+          />,
         ]}
       </div>
     );
