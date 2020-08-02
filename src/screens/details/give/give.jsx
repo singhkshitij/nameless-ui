@@ -8,7 +8,6 @@ import { MdClearAll } from "react-icons/md";
 import axios from "axios";
 import Constants from "../../../constants";
 import LoadingIndicator from "../../../components/loadingIndicator/loadingIndicator";
-import SubHeading from "../../../components/subHeading/subHeading";
 import "./give.css";
 
 export default class Give extends Component {
@@ -81,9 +80,6 @@ export default class Give extends Component {
     }
 
     return [
-      <div className="details-title">
-        <SubHeading text="Join room" size="1.5em" color="#909090" />
-      </div>,
       <TextField
         label="Enter room Id"
         helperText={<HelperText></HelperText>}

@@ -54,7 +54,7 @@ export default class Dashboard extends Component {
           <Spacer space="20px" />
           <SubHeading text="An anonymous feedback messenger 👩👨" size="1.5em" />
           <Spacer space="20px" />
-          <SubHeading text="Realtime - Open source" size="1em" color="#263238"/>
+          <SubHeading text="Realtime · No login required" size="1em" color="#263238"/>
           <Spacer space="20px" />
           <Link
             to={{

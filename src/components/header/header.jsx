@@ -5,6 +5,7 @@ import { IoMdArrowBack, IoMdExit, IoMdDownload } from "react-icons/io";
 import UserDetails from "../../components/userDetails/userDetails";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import IconMenu from "@bit/take2.components.icon-menu";
+import SubHeading from "../../components/subHeading/subHeading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
@@ -17,6 +18,8 @@ export default class Header extends Component {
       link: this.props.link,
       chatPage: this.props.chatPage,
       name: this.props.hostName,
+      detailsPage: this.props.detailsPage,
+      title: this.props.title || "",
     };
   }
 
@@ -43,6 +46,12 @@ export default class Header extends Component {
             <IoMdArrowBack />
           </IconContext.Provider>
         </Link>
+        {this.state.detailsPage && [
+          <div className="header-details">
+           <SubHeading text={this.state.title} size="1em" color="#34495e" capitalise/>
+          </div>,
+        ]}
+        ,
         {this.state.chatPage && [
           <div className="header-details">
             <Gravatar text={this.state.name} size="30px" />
@@ -50,7 +59,7 @@ export default class Header extends Component {
           </div>,
           <div className="header-actions">
             <CopyToClipboard text={window.location.href} onCopy={notify}>
-            <button class="invite-button">Invite</button>
+              <button class="invite-button">Invite</button>
             </CopyToClipboard>
             <IconMenu items={items} />
           </div>,

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import TextField, { HelperText, Input } from "@material/react-text-field";
-import SubHeading from "../../../components/subHeading/subHeading";
 import "@material/react-text-field/dist/text-field.css";
 import Button from "../../../components/button/button";
 import { Redirect } from "react-router-dom";
@@ -80,13 +79,6 @@ export default class Take extends Component {
     }
 
     return [
-      <div className="details-title">
-        <SubHeading
-          text="Create a room"
-          size="1.5em"
-          color="#909090"
-        />
-      </div>,
       <TextField
         label="Host name"
         helperText={<HelperText>Be original!</HelperText>}
