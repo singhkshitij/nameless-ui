@@ -39,7 +39,7 @@
 * [About the Project](#about-the-project)
   * [Usecases](#use-cases)
   * [Built With](#built-with)
-  * [Why is it needed?](#why-is-it-needed?) 
+  * [Why is it needed?](#why-is-it-needed) 
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -55,8 +55,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 An anonymous feedback messenger
 * No login no auth required
 * Real Time feedback sessions
@@ -65,6 +63,8 @@ An anonymous feedback messenger
     - Host can interact and introspect feedback with audience realtime
     - No limit on number of people that can join the same room at a time
     - No context of the data being stored
+
+[![Product Name Screen Shot][product-screenshot]](https://namelss.com)
 
 ### Use Cases
 * A manager taking feedback from his/her team members
