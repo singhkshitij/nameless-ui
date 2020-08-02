@@ -8,7 +8,7 @@ import TextField, { HelperText, Input } from "@material/react-text-field";
 import SubHeading from "../../components/subHeading/subHeading";
 import "@material/react-text-field/dist/text-field.css";
 import Button from "../../components/button/button";
-import { FcPortraitMode } from "react-icons/fc";
+import { FcPortraitMode,FcKey } from "react-icons/fc";
 import { MdClearAll } from "react-icons/md";
 
 import "./room.css";
@@ -162,7 +162,20 @@ export default class Room extends Component {
         />
       </div>,
       <TextField
-        label="Your name"
+        label="Room Id"
+        helperText={<HelperText></HelperText>}
+        leadingIcon={<FcKey />}
+        trailingIcon={<MdClearAll />}
+        outlined
+      >
+        <Input
+          value={this.state.uid}
+          onChange={(e) => this.validateRoomName(e)}
+          disabled
+        />
+      </TextField>,
+      <TextField
+        label="Name"
         helperText={<HelperText>Try something funny...</HelperText>}
         onTrailingIconSelect={() => this.setState({ name: "" })}
         leadingIcon={<FcPortraitMode />}
