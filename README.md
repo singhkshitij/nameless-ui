@@ -139,8 +139,7 @@ Kshitij Singh - [@ikshitijsingh](https://twitter.com/ikshitijsingh) - <a href="m
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [Flat icon](https://flaticon.com)
+* Logo by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> Flaticon</a>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
