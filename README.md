@@ -54,8 +54,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-An anonymous feedback messenger
 * No login no auth required
 * Real Time feedback sessions
 * It helps with :
