@@ -15,19 +15,19 @@
     <img src="public/assets/images/anonymous.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Nameléss</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    An anonymous feedback platform realtime chat support !
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://namelss.com"><strong>Launch app »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://docs.google.com/document/d/1Yhp8g4n9ISx1rKzYzL-qt9fs8BNQRiLf0agn9uY8sFk/edit">ADR doc</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/singhkshitij/nameless-ui/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/singhkshitij/nameless-ui/issues">Request Feature</a>
   </p>
 </p>
 
@@ -37,7 +37,9 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)
+  * [Usecases](#use-cases)
   * [Built With](#built-with)
+  * [Why is it needed?](#why-is-it-needed?) 
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -55,29 +57,34 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
+An anonymous feedback messenger
+* No login no auth required
+* Real Time feedback sessions
+* It helps with :
+    - People giving feedback can be totally anonymous
+    - Host can interact and introspect feedback with audience realtime
+    - No limit on number of people that can join the same room at a time
+    - No context of the data being stored
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+### Use Cases
+* A manager taking feedback from his/her team members
+* A online teacher requesting feedback from students
+* Post presentation feedbacks in conferences
+* More real world scenarios you can think of...
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+### Why is it needed? 
+* Given that there are number of anonymous feedback tools already available, what make Namelss unique is its ability to interact real time while being anonymous.
+* Google forms · 15Five · ‎Officevibe · ‎TinyPulse · ‎Qualtrics etc do not allow you to interact realtime. 
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
-
-
+Tech stack used : 
+* [Frontend - React](https://reactjs.org/)
+* [Backend - Clojure](https://clojure.org/)
+* [Database - Postgres](https://www.postgresql.org/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
@@ -90,10 +97,9 @@ npm install npm@latest -g
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/singhkshitij/nameless-ui.git
 ```
 3. Install NPM packages
 ```sh
@@ -101,26 +107,14 @@ npm install
 ```
 4. Enter your API in `config.js`
 ```JS
-const API_KEY = 'ENTER YOUR API';
+npm start
 ```
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
+To check what is in progress and about to get delivered, head over to the [ADR doc](https://docs.google.com/document/d/1Yhp8g4n9ISx1rKzYzL-qt9fs8BNQRiLf0agn9uY8sFk/edit#heading=h.a4u119gnl3b7).
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
-
-
+See the [open issues](https://github.com/singhkshitij/nameless-ui/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -134,40 +128,21 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-
-
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
+Kshitij Singh - [@ikshitijsingh](https://twitter.com/ikshitijsingh) - <a href="mailto:singh_kshitij@yahoo.com">Email</a>
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Img Shields](https://shields.io)
 * [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
-
-
-
-
+* [Flat icon](https://flaticon.com)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -183,4 +158,4 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [license-url]: https://github.com/singhkshitij/nameless-ui/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/ikshitijsingh/
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/images/screenshot.png
