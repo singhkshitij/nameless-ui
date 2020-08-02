@@ -129,7 +129,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the GPL-3.0 License. See [LICENSE](https://github.com/singhkshitij/nameless-ui/blob/master/LICENSE) for more information.
 
 <!-- CONTACT -->
 ## Contact
