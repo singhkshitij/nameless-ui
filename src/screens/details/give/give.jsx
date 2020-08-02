@@ -4,10 +4,12 @@ import "@material/react-text-field/dist/text-field.css";
 import Button from "../../../components/button/button";
 import { Redirect } from "react-router-dom";
 import { FcKey, FcPortraitMode } from "react-icons/fc";
+import { FiHelpCircle } from "react-icons/fi";
 import { MdClearAll } from "react-icons/md";
 import axios from "axios";
 import Constants from "../../../constants";
 import LoadingIndicator from "../../../components/loadingIndicator/loadingIndicator";
+import ReactTooltip from "react-tooltip";
 import "./give.css";
 
 export default class Give extends Component {
@@ -80,6 +82,9 @@ export default class Give extends Component {
     }
 
     return [
+      <p data-tip data-for="giveHelp" className="help-icon">
+        <FiHelpCircle/>
+      </p>,
       <TextField
         label="Enter room Id"
         helperText={<HelperText></HelperText>}
@@ -94,7 +99,7 @@ export default class Give extends Component {
         />
       </TextField>,
       <TextField
-        label="Your name"
+        label="Name"
         helperText={<HelperText>Try something funny..</HelperText>}
         onTrailingIconSelect={() => this.setState({ hostName: "" })}
         leadingIcon={<FcPortraitMode />}
@@ -120,6 +125,12 @@ export default class Give extends Component {
         />
       ),
       <p className="give-error">{this.state.error} </p>,
+      <ReactTooltip id="giveHelp" place="top" effect="solid" aria-haspopup='true'>
+        <ul>
+          <li>Enter joining room id</li>
+          <li>Enter some random name, maybe a superhero</li>
+        </ul>
+      </ReactTooltip>,
     ];
   }
 

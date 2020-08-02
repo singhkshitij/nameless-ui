@@ -9,6 +9,8 @@ import { nanoid } from "nanoid";
 import axios from "axios";
 import Constants from "../../../constants";
 import LoadingIndicator from "../../../components/loadingIndicator/loadingIndicator";
+import ReactTooltip from "react-tooltip";
+import { FiHelpCircle } from "react-icons/fi";
 import "./take.css";
 
 export default class Take extends Component {
@@ -79,6 +81,9 @@ export default class Take extends Component {
     }
 
     return [
+      <p data-tip data-for="giveHelp" className="help-icon">
+        <FiHelpCircle />
+      </p>,
       <TextField
         label="Host name"
         helperText={<HelperText>Be original!</HelperText>}
@@ -106,6 +111,9 @@ export default class Take extends Component {
         />
       ),
       <p className="give-error">{this.state.error} </p>,
+      <ReactTooltip id="giveHelp" place="top" effect="solid" aria-haspopup='true'>
+        <p>Enter host name. Keep it original !</p>
+      </ReactTooltip>,
     ];
   }
 
