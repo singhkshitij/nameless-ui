@@ -59,7 +59,7 @@ export default class Header extends Component {
           </div>,
           <div className="header-actions">
             <CopyToClipboard text={window.location.href} onCopy={notify}>
-              <button class="invite-button">Invite</button>
+              <button className="invite-button">Invite</button>
             </CopyToClipboard>
             <IconMenu items={items} />
           </div>,

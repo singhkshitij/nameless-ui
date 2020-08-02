@@ -10,6 +10,7 @@ import "@material/react-text-field/dist/text-field.css";
 import Button from "../../components/button/button";
 import { FcPortraitMode, FcKey } from "react-icons/fc";
 import { MdClearAll } from "react-icons/md";
+import CryptoJS from "crypto-js";
 
 import "./room.css";
 
@@ -42,10 +43,13 @@ export default class Room extends Component {
   ws = null;
 
   async sendMessage(type, message) {
+    const secret = process.env[Constants.decipher];
+    console.log("Secret" , secret)
+    const emess = CryptoJS.AES.encrypt(message, secret).toString();
     if (message) {
       let details = {
         url: this.state.uid,
-        data: message,
+        data: emess,
         owner: this.state.name,
       };
 
@@ -157,11 +161,7 @@ export default class Room extends Component {
   getRoomDetails() {
     return [
       <div className="details-title">
-        <SubHeading
-          text="Join room"
-          size="1em"
-          color="#909090"
-        />
+        <SubHeading text="Join room" size="1em" color="#909090" />
       </div>,
       <TextField
         label="Room Id"

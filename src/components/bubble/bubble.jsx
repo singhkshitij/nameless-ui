@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ScrollToBottom from 'react-scroll-to-bottom';
+import CryptoJS from "crypto-js";
+import Constants from "../../constants";
 import "./bubble.css";
 
 export default class Bubble extends Component {
@@ -49,6 +51,13 @@ export default class Bubble extends Component {
     }
   }
 
+  getDecryptedMessage(message){
+
+    const secret = process.env[Constants.decipher];
+    let dmsg = CryptoJS.AES.decrypt(message, secret).toString(CryptoJS.enc.Utf8);
+    return dmsg;
+  }
+
   updateScroll(){
     var element = document.getElementsByClassName("scrollarea-content");
     element.scrollTop = element.scrollHeight;
@@ -72,7 +81,7 @@ export default class Bubble extends Component {
           {obj.owner !== this.props.owner && obj.type !== "entry" && (
             <div className="bubble-owner">{obj.owner}</div>
           )}
-          <div>{obj.data}</div>
+          <div>{this.getDecryptedMessage(obj.data)}</div>
           {obj.type !== "entry" && (
             <div className="bubble-dt">{this.getDateTime(obj.dt)}</div>
           )}
