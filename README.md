@@ -18,7 +18,7 @@
   <h3 align="center">Nameléss</h3>
 
   <p align="center">
-    An anonymous feedback platform realtime chat support !
+    An anonymous feedback platform with realtime chat support !
     <br />
     <a href="https://namelss.com"><strong>Launch app »</strong></a>
     <br />
@@ -155,7 +155,7 @@ Kshitij Singh - [@ikshitijsingh](https://twitter.com/ikshitijsingh) - <a href="m
 [issues-shield]: https://img.shields.io/github/issues/singhkshitij/nameless-ui.svg?style=flat-square
 [issues-url]: https://github.com/singhkshitij/nameless-ui/issues
 [license-shield]: https://img.shields.io/github/license/singhkshitij/nameless-ui.svg?style=flat-square
-[license-url]: https://github.com/singhkshitij/nameless-ui/blob/master/LICENSE.txt
+[license-url]: https://github.com/singhkshitij/nameless-ui/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/ikshitijsingh/
 [product-screenshot]: https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/images/screenshot.png
