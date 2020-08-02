@@ -158,7 +158,7 @@ export default class Room extends Component {
     return [
       <div className="details-title">
         <SubHeading
-          text="Enter details to join room"
+          text="Join room"
           size="1em"
           color="#909090"
         />
