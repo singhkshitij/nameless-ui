@@ -8,7 +8,7 @@ import TextField, { HelperText, Input } from "@material/react-text-field";
 import SubHeading from "../../components/subHeading/subHeading";
 import "@material/react-text-field/dist/text-field.css";
 import Button from "../../components/button/button";
-import { FcPortraitMode,FcKey } from "react-icons/fc";
+import { FcPortraitMode, FcKey } from "react-icons/fc";
 import { MdClearAll } from "react-icons/md";
 
 import "./room.css";
@@ -42,13 +42,15 @@ export default class Room extends Component {
   ws = null;
 
   async sendMessage(type, message) {
-    let details = {
-      url: this.state.uid,
-      data: message,
-      owner: this.state.name,
-    };
+    if (message) {
+      let details = {
+        url: this.state.uid,
+        data: message,
+        owner: this.state.name,
+      };
 
-    this.ws.send(JSON.stringify(details));
+      this.ws.send(JSON.stringify(details));
+    }
   }
 
   async addMessage(type, message) {
@@ -157,7 +159,7 @@ export default class Room extends Component {
       <div className="details-title">
         <SubHeading
           text="Enter details to join room"
-          size="1.5em"
+          size="1em"
           color="#909090"
         />
       </div>,
