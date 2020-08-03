@@ -44,7 +44,6 @@ export default class Room extends Component {
 
   async sendMessage(type, message) {
     const secret = process.env[Constants.decipher];
-    console.log("Secret" , secret)
     const emess = CryptoJS.AES.encrypt(message, secret).toString();
     if (message) {
       let details = {

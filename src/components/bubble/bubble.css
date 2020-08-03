@@ -30,6 +30,7 @@
   padding: 10px;
   min-width: 10vw;
   display: inline-block;
+  white-space: pre-wrap;
 }
 
 .right-bubble {
