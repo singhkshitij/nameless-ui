@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import ScrollToBottom from 'react-scroll-to-bottom';
+import ScrollToBottom from "react-scroll-to-bottom";
 import CryptoJS from "crypto-js";
 import Constants from "../../constants";
 import "./bubble.css";
 
 export default class Bubble extends Component {
-  
   getDateTime(dt) {
     var date = new Date(dt);
     var dateNow = new Date();
@@ -34,11 +33,7 @@ export default class Bubble extends Component {
         "DEC",
       ];
       let formatted_date =
-        date.getDate() +
-        "-" +
-        months[date.getMonth()] +
-        " " +
-        strTime;
+        date.getDate() + "-" + months[date.getMonth()] + " " + strTime;
       return formatted_date;
     }
   }
@@ -51,14 +46,18 @@ export default class Bubble extends Component {
     }
   }
 
-  getDecryptedMessage(message){
-
-    const secret = process.env[Constants.decipher];
-    let dmsg = CryptoJS.AES.decrypt(message, secret).toString(CryptoJS.enc.Utf8);
-    return dmsg;
+  getDecryptedMessage(message, type) {
+    if (type !== "entry") {
+      const secret = process.env[Constants.decipher];
+      let dmsg = CryptoJS.AES.decrypt(message, secret).toString(
+        CryptoJS.enc.Utf8
+      );
+      return dmsg;
+    }
+    return message;
   }
 
-  updateScroll(){
+  updateScroll() {
     var element = document.getElementsByClassName("scrollarea-content");
     element.scrollTop = element.scrollHeight;
   }
@@ -81,7 +80,7 @@ export default class Bubble extends Component {
           {obj.owner !== this.props.owner && obj.type !== "entry" && (
             <div className="bubble-owner">{obj.owner}</div>
           )}
-          <div>{this.getDecryptedMessage(obj.data)}</div>
+          <div>{this.getDecryptedMessage(obj.data, obj.type)}</div>
           {obj.type !== "entry" && (
             <div className="bubble-dt">{this.getDateTime(obj.dt)}</div>
           )}
@@ -94,8 +93,9 @@ export default class Bubble extends Component {
   render() {
     return (
       <div className="discussion">
-        <ScrollToBottom scrollViewClassName="scrollarea-content"
-        mode="bottom">{this.getChatBubbles()}</ScrollToBottom>
+        <ScrollToBottom scrollViewClassName="scrollarea-content" mode="bottom">
+          {this.getChatBubbles()}
+        </ScrollToBottom>
       </div>
     );
   }
