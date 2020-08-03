@@ -20,7 +20,10 @@ export default class Header extends Component {
       name: this.props.hostName,
       detailsPage: this.props.detailsPage,
       title: this.props.title || "",
-      invite:  "Hey there, i am waiting for you in namelss room. \nPlease join here :\n\n" + window.location.href
+      invite:
+        "Hey there, i am waiting for you in namelss room. \nPlease join here :\n\n" +
+        window.location.origin +
+        this.props.pathname || window.location.origin
     };
   }
 
@@ -49,7 +52,12 @@ export default class Header extends Component {
         </Link>
         {this.state.detailsPage && [
           <div className="header-details">
-           <SubHeading text={this.state.title} size="1em" color="#34495e" capitalise/>
+            <SubHeading
+              text={this.state.title}
+              size="1em"
+              color="#34495e"
+              capitalise
+            />
           </div>,
         ]}
         ,
