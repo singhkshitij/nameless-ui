@@ -8,7 +8,10 @@ import IconMenu from "@bit/take2.components.icon-menu";
 import SubHeading from "../../components/subHeading/subHeading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import exportFromJSON from "export-from-json";
 import { Link } from "react-router-dom";
+import CryptoJS from "crypto-js";
+import Constants from "../../constants";
 import Gravatar from "../avatar/avatar";
 
 export default class Header extends Component {
@@ -22,18 +25,44 @@ export default class Header extends Component {
       title: this.props.title || "",
       invite:
         "Hey there, i am waiting for you in namelss room. \nPlease join here :\n\n" +
-        window.location.origin +
-        this.props.pathname || window.location.origin
+          window.location.origin +
+          this.props.pathname || window.location.origin,
     };
+  }
+
+  getDecryptedMessage(message, type) {
+    if (type !== "entry") {
+      const secret = process.env[Constants.decipher];
+      let dmsg = CryptoJS.AES.decrypt(message, secret).toString(
+        CryptoJS.enc.Utf8
+      );
+      return dmsg;
+    }
+    return message;
+  }
+
+  exportData() {
+    const exportData = this.props.dataForExport.map(item => { 
+      return {
+       "Message": this.getDecryptedMessage(item.data, item.type),
+       "Sent by": item.owner,
+       "Sent at": new Date(item.dt).toLocaleString()
+      }
+    })
+    exportFromJSON({
+      data: exportData,
+      fileName: "export",
+      exportType: exportFromJSON.types.csv,
+    });
   }
 
   render() {
     const items = [
       {
         icon: <IoMdDownload />,
-        label: "Export",
+        label: "Export as CSV",
         onClick: () => {
-          console.log("export clicked");
+          this.exportData();
         },
       },
       { icon: <IoMdExit />, label: "Exit" },

@@ -195,7 +195,7 @@ export default class Room extends Component {
   render() {
     return this.state.name !== "" && this.state.redirect ? (
       <div className="room">
-        <Header chatPage hostName={this.state.name} pathname={this.props.location.pathname}/>
+        <Header chatPage hostName={this.state.name} pathname={this.props.location.pathname} dataForExport={this.state.data}/>
         <ChatContent data={this.state.data} owner={this.state.name} />
         <MessageBox messageHook={this.sendMessage} />
       </div>
