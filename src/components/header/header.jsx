@@ -37,6 +37,8 @@ export default class Header extends Component {
 
     const notify = () => toast.success("Invite link has been copied !");
 
+    const copyText = "Hey there, i am waiting for you in namelss room. \nPlease join here :\n\n" + window.location.href
+
     return (
       <div className="page-header">
         <Link to="/">
@@ -58,7 +60,7 @@ export default class Header extends Component {
             <UserDetails text={this.state.name} size="20px" color="#34495e" />
           </div>,
           <div className="header-actions">
-            <CopyToClipboard text={window.location.href} onCopy={notify}>
+            <CopyToClipboard text={copyText} onCopy={notify}>
               <button className="invite-button">Invite</button>
             </CopyToClipboard>
             <IconMenu items={items} />
