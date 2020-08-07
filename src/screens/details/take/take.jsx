@@ -97,9 +97,11 @@ export default class Take extends Component {
           onChange={(e) => this.validateRoomName(e)}
         />
       </TextField>,
-      this.state.linkEnabled && (
-        <Button text="Create room" callback={this.createRoom} />
-      ),
+      <Button
+        disabled={this.state.linkEnabled ? false : true}
+        text="Create room"
+        callback={this.createRoom}
+      />,
       this.state.redirect && (
         <Redirect
           to={{
@@ -111,7 +113,12 @@ export default class Take extends Component {
         />
       ),
       <p className="give-error">{this.state.error} </p>,
-      <ReactTooltip id="giveHelp" place="top" effect="solid" aria-haspopup='true'>
+      <ReactTooltip
+        id="giveHelp"
+        place="top"
+        effect="solid"
+        aria-haspopup="true"
+      >
         <p>Enter host name. Keep it original !</p>
       </ReactTooltip>,
     ];
