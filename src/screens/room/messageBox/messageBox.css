@@ -27,7 +27,8 @@
   display: flex;
   justify-content: right;
   align-items: center;
-  width: 15%;
+  width: 12.5%;
+  margin-right: 2.5%;
 }
 
 .chat-input {
@@ -36,14 +37,16 @@
   background-color: #fff;
 }
 
-.action-buttons {
+.action-button {
   height: 25px;
   width: 25px;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 .action-buttons {
-  margin-left: 1vw;
-  margin-right: 2vw;
+  height: 25px;
+  width: 25px;
 }
 
 .msg-textarea {
