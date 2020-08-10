@@ -42,13 +42,13 @@ export default class Header extends Component {
   }
 
   exportData() {
-    const exportData = this.props.dataForExport.map(item => { 
+    const exportData = this.props.dataForExport.map((item) => {
       return {
-       "Message": this.getDecryptedMessage(item.data, item.type),
-       "Sent by": item.owner,
-       "Sent at": new Date(item.dt).toLocaleString()
-      }
-    })
+        Message: this.getDecryptedMessage(item.data, item.type),
+        "Sent by": item.owner,
+        "Sent at": new Date(item.dt).toLocaleString(),
+      };
+    });
     exportFromJSON({
       data: exportData,
       fileName: "export",
@@ -89,7 +89,6 @@ export default class Header extends Component {
             />
           </div>,
         ]}
-        ,
         {this.state.chatPage && [
           <div className="header-details">
             <Gravatar text={this.state.name} size="30px" />
