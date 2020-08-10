@@ -47,6 +47,7 @@ export default class MessageBox extends Component {
             rows={2}
             className="msg-textarea"
             onKeyDown={this.onEnterPress}
+            autoFocus
           />
         </div>
         <div className="chat-action">
@@ -72,6 +73,7 @@ export default class MessageBox extends Component {
             <Picker
               onSelect={this.addEmoji}
               emojiTooltip={true}
+              enableFrequentEmojiSort
               title="Select emoji"
             />
           </span>
