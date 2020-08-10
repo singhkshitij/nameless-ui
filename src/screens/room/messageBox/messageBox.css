@@ -13,12 +13,13 @@
 
 .chat-box {
   float: left;
-  width: 85vw;
+  width: 80vw;
   text-align: center;
   height: 50px;
   justify-content: right;
   align-items: center;
   display: flex;
+  padding-left: 4vw;
 }
 
 .chat-action {
@@ -27,7 +28,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 12.5vw;
+  width: 10vw;
+  padding-right: 4vw;
 }
 
 .chat-input {
@@ -49,7 +51,7 @@
 }
 
 .msg-textarea {
-  width: 90%;
+  width: 100%;
   outline: none;
   resize: none;
   overflow: auto;
