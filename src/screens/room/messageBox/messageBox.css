@@ -13,7 +13,7 @@
 
 .chat-box {
   float: left;
-  width: 85%;
+  width: 85vw;
   text-align: center;
   height: 50px;
   justify-content: right;
@@ -25,15 +25,14 @@
   float: right;
   height: 50px;
   display: flex;
-  justify-content: right;
+  justify-content: center;
   align-items: center;
-  width: 12.5%;
-  margin-right: 2.5%;
+  width: 12.5vw;
 }
 
 .chat-input {
   position: absolute;
-  width: 85%;
+  width: 90%;
   background-color: #fff;
 }
 
