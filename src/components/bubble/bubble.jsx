@@ -59,7 +59,7 @@ export default class Bubble extends Component {
 
   scrollToBottom = () => {
     this.messagesEnd.scrollIntoView({ behavior: "smooth" });
-  }
+  };
 
   componentDidMount() {
     this.scrollToBottom();
@@ -101,11 +101,15 @@ export default class Bubble extends Component {
     return (
       <div className="discussion">
         <ScrollToBottom scrollViewClassName="scrollarea-content" mode="bottom">
+          <div
+            className="hidden-div"
+            style={{ float: "left", clear: "both" }}
+            ref={(el) => {
+              this.messagesEnd = el;
+            }}
+          ></div>
           {this.getChatBubbles()}
         </ScrollToBottom>
-        <div className="hidden-div" style={{ float:"left", clear: "both" }}
-             ref={(el) => { this.messagesEnd = el; }}>
-        </div>
       </div>
     );
   }

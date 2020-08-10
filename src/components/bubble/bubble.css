@@ -1,20 +1,23 @@
-.discussion{
+.discussion {
   min-width: 100%;
-  max-height: 80vh;
-  min-height: 80vh;
+  max-height: 100vh;
+  min-height: 100vh;
   overflow: scroll;
 }
 
- /* Hide scrollbar for Chrome, Safari and Opera */
- .discussion::-webkit-scrollbar {
+.discussion > div {
+  margin-top: 45px;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.discussion::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .discussion {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-} 
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
 .container {
   bottom: 0;
@@ -51,13 +54,13 @@
 .left-bubble-aligned {
   color: #000;
   background-color: #fff;
-  box-shadow: 0 5px 5px -2px rgba(0,0,0,.2);
+  box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.2);
 }
 
 .right-bubble-aligned {
   color: #fff;
   background-color: #3498db;
-  box-shadow: 0 5px 5px -2px rgba(0,0,0,.2);
+  box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.2);
 }
 
 .entry-bubble-aligned {
@@ -67,27 +70,31 @@
   text-align: center !important;
 }
 
-.bubble-dt{
+.bubble-dt {
   font-size: 12px;
   text-align: right !important;
 }
 
-.left-bubble-aligned .bubble-dt{
+.left-bubble-aligned .bubble-dt {
   color: #7f8c8d;
 }
 
-.right-bubble-aligned .bubble-dt{
-  color: #EEEEEE;
+.right-bubble-aligned .bubble-dt {
+  color: #eeeeee;
 }
 
-.bubble-owner{
+.bubble-owner {
   color: #8e44ad;
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.scrollarea-content{
+.scrollarea-content {
   display: flex;
   flex-direction: column-reverse;
+}
+
+.scrollarea-content:first-child {
+  margin-bottom: 65px;
 }

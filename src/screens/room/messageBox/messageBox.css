@@ -1,23 +1,33 @@
 .message-box {
-  max-height: 10vh;
-  min-height: 10vh;
-  min-width: 100vw;
+  max-height: 50px;
+  min-height: 50px;
+  min-width: 98vw;
   background-color: #fff;
-  border-top: 0.5px solid rgba(0, 0, 0, 0.3);
+  border-radius: 100px;
+  border: 0.5px solid #78909c;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 7px -2px #78909c;
 }
 
 .chat-box {
   float: left;
-  min-width: 85%;
+  width: 85%;
+  text-align: center;
+  height: 50px;
+  justify-content: right;
+  align-items: center;
+  display: flex;
 }
 
 .chat-action {
   float: right;
-  height: 10vh;
+  height: 50px;
   display: flex;
   justify-content: right;
   align-items: center;
-  min-width: 10%;
+  width: 15%;
 }
 
 .chat-input {
@@ -27,8 +37,8 @@
 }
 
 .action-buttons {
-  height: 5vh;
-  min-width: 4vw;
+  height: 25px;
+  width: 25px;
 }
 
 .action-buttons {
@@ -37,16 +47,13 @@
 }
 
 .msg-textarea {
-  width: 100%;
+  width: 97%;
   outline: none;
   resize: none;
   overflow: auto;
   border: none;
   font-size: 1em;
   padding-top: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 9vh;
   white-space: pre-wrap;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -54,7 +61,7 @@
 }
 
 .emoji-picker {
-    position:fixed;
-	bottom:12vh;
-	right:2vw;
+  position: fixed;
+  bottom: 12vh;
+  right: 2vw;
 }
