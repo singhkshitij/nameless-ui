@@ -21,7 +21,7 @@ export default class userDetails extends Component {
           height: "100%",
         }}
       >
-        <span
+        <p
           className="hostname"
           style={{
             color: this.state.color || "#000",
@@ -30,7 +30,7 @@ export default class userDetails extends Component {
           }}
         >
           {this.state.text}
-        </span>
+        </p>
       </div>
     );
   }
