@@ -49,6 +49,7 @@ export default class Take extends Component {
     //remove redis functionality from service
     var self = this;
     let host = Constants.serverHostKey;
+    console.log("ENV ",process.env)
     const url = process.env[host] + "/api/v1/room/" + uid;
 
     await axios
