@@ -1,5 +1,5 @@
 export default {
-  serverHostKey: "REACT_APP_CUSTOM_ENV_VAR",
+  serverHostKey: "REACT_APP_SERVER_HOSTNAME",
   wsHost: "REACT_APP_WS_HOST",
   decipher: "REACT_APP_DECIPHER"
 };
