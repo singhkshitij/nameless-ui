@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import "./header.css";
 import { IconContext } from "react-icons";
-import { IoMdArrowBack, IoMdExit, IoMdDownload } from "react-icons/io";
+import {
+  IoMdArrowBack,
+  IoMdExit,
+  IoMdDownload,
+  IoLogoGithub,
+} from "react-icons/io";
 import UserDetails from "../../components/userDetails/userDetails";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import IconMenu from "@bit/take2.components.icon-menu";
@@ -95,6 +100,12 @@ export default class Header extends Component {
             <UserDetails text={this.state.name} size="20px" color="#34495e" />
           </div>,
           <div className="header-actions">
+            <IoLogoGithub
+              className="github-icon"
+              onClick={() =>
+                window.open("https://github.com/singhkshitij/nameless-ui")
+              }
+            />
             <CopyToClipboard text={this.state.invite} onCopy={notify}>
               <button className="invite-button">Invite</button>
             </CopyToClipboard>
