@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import CryptoJS from "crypto-js";
 import Constants from "../../constants";
+import {MdLock } from "react-icons/md";
 import "./bubble.css";
 
 export default class Bubble extends Component {
@@ -109,6 +110,12 @@ export default class Bubble extends Component {
             }}
           ></div>
           {this.getChatBubbles()}
+          <div className="encrypted-msg">
+            <p>
+              <MdLock/> All chats are end to end encrypted. <br/>
+              Not even namelss can understand them
+            </p>
+          </div>
         </ScrollToBottom>
       </div>
     );

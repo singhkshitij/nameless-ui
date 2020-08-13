@@ -65,9 +65,10 @@
 
 .entry-bubble-aligned {
   color: #27ae60;
-  font-weight: bold;
   border-radius: 5px;
   text-align: center !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .bubble-dt {
@@ -97,4 +98,18 @@
 
 .scrollarea-content:first-child {
   margin-bottom: 65px;
+}
+
+.encrypted-msg {
+  justify-content: center !important;
+  font-size: small;
+  text-align: center !important;
+}
+
+.encrypted-msg > p {
+  background-color: #95a5a6;
+  color: #fff;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
 }
