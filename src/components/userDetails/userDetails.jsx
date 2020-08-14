@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './userDetails.css';
+import "./userDetails.css";
 
 export default class userDetails extends Component {
   constructor(props) {
@@ -14,11 +14,11 @@ export default class userDetails extends Component {
   render() {
     return (
       <div
+        className="header-hostname"
         style={{
           textAlign: "center",
           verticalAlign: "middle",
           display: "inline-block",
-          height: "100%",
         }}
       >
         <p
@@ -26,7 +26,7 @@ export default class userDetails extends Component {
           style={{
             color: this.state.color || "#000",
             textTransform: this.state.capitalise ? "uppercase" : "capitalize",
-            fontSize: this.state.size || "3vh"
+            fontSize: this.state.size || "3vh",
           }}
         >
           {this.state.text}

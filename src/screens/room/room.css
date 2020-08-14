@@ -26,7 +26,3 @@
 .room .hostname{
   min-height: 45px !important;
 }
-
-.room .header-details > div {
-  height: 45px !important;
-}
