@@ -26,3 +26,9 @@
 .room .hostname{
   min-height: 45px !important;
 }
+
+.room .bubble a{
+  text-decoration: none;
+  color:inherit;
+  font-style: italic;
+}

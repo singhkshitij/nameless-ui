@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import CryptoJS from "crypto-js";
 import Constants from "../../constants";
-import {MdLock } from "react-icons/md";
+import { MdLock } from "react-icons/md";
+import Linkify from "react-linkify";
 import "./bubble.css";
 
 export default class Bubble extends Component {
@@ -71,6 +72,13 @@ export default class Bubble extends Component {
   }
 
   getChatBubbles() {
+
+    const componentDecorator = (href, text, key) => (
+      <a href={href} key={key} target="_blank" rel="noopener noreferrer">
+        {text}
+      </a>
+    );
+
     const chatBubbles = this.props.data.map((obj, i = 0) => (
       <div
         className={
@@ -88,7 +96,9 @@ export default class Bubble extends Component {
           {obj.owner !== this.props.owner && obj.type !== "entry" && (
             <div className="bubble-owner">{obj.owner}</div>
           )}
-          <div>{this.getDecryptedMessage(obj.data, obj.type)}</div>
+          <Linkify componentDecorator={componentDecorator}>
+            {this.getDecryptedMessage(obj.data, obj.type)}
+          </Linkify>
           {obj.type !== "entry" && (
             <div className="bubble-dt">{this.getDateTime(obj.dt)}</div>
           )}
@@ -112,7 +122,7 @@ export default class Bubble extends Component {
           {this.getChatBubbles()}
           <div className="encrypted-msg">
             <p>
-              <MdLock/> All chats are end to end encrypted. <br/>
+              <MdLock /> All chats are end to end encrypted. <br />
               Not even namelss can understand them
             </p>
           </div>
