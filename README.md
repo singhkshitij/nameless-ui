@@ -36,6 +36,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
+* [Installation](#installation)
 * [About the Project](#about-the-project)
   * [Usecases](#use-cases)
   * [Built With](#built-with)
@@ -50,12 +51,15 @@
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
 
-
+## Installation
+* You can directly head over to <a href="http://namelss.com" target="_blank">namelss.com</a> on Desktop, tablet or mobile devices (Yes, it is responsive)
+* Since it is also [PWA](https://love2dev.com/blog/progressive-web-app-features/) , you can install it as an lightweight app on any Mobile/Desktop device. Just click on **Add to home screen** when you see it. 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 * No login no auth required
 * Real Time feedback sessions
+* E2E encrypted chats
 * It helps with :
     - People giving feedback can be totally anonymous
     - Host can interact and introspect feedback with audience realtime
