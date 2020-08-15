@@ -23,6 +23,7 @@ export default class Room extends Component {
       name: this.props.location.state ? this.props.location.state.name : "",
       data: [],
       error: "",
+      isHost: this.props.location.state ? this.props.location.state.isHost : false,
       redirect: this.props.location.state ? true : false,
     };
   }
@@ -200,7 +201,7 @@ export default class Room extends Component {
           hostName={this.state.name}
           pathname={this.props.location.pathname}
           dataForExport={this.state.data}
-          isHost={this.props.location.state["isHost"] || false}
+          isHost={this.state.isHost}
         />
         <ChatContent data={this.state.data} owner={this.state.name} />
         <div className="floating-chatBox">
