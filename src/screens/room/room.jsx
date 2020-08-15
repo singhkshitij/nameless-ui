@@ -200,6 +200,7 @@ export default class Room extends Component {
           hostName={this.state.name}
           pathname={this.props.location.pathname}
           dataForExport={this.state.data}
+          isHost={this.props.location.state.isHost}
         />
         <ChatContent data={this.state.data} owner={this.state.name} />
         <div className="floating-chatBox">

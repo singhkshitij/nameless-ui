@@ -108,6 +108,7 @@ export default class Take extends Component {
             pathname: "/room/" + this.getRoomID(),
             state: {
               name: this.state.hostName,
+              isHost: true
             },
           }}
         />

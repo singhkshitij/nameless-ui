@@ -3,7 +3,6 @@ import "./header.css";
 import { IconContext } from "react-icons";
 import {
   IoMdArrowBack,
-  IoMdExit,
   IoMdDownload,
   IoLogoGithub,
 } from "react-icons/io";
@@ -70,7 +69,6 @@ export default class Header extends Component {
           this.exportData();
         },
       },
-      { icon: <IoMdExit />, label: "Exit" },
     ];
 
     const notify = () => toast.success("Invite link has been copied !");
@@ -109,7 +107,7 @@ export default class Header extends Component {
             <CopyToClipboard text={this.state.invite} onCopy={notify}>
               <button className="invite-button">Invite</button>
             </CopyToClipboard>
-            <IconMenu items={items} />
+            {this.props.isHost && <IconMenu items={items} />}
           </div>,
           <ToastContainer
             position="top-right"
