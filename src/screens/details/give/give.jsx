@@ -82,7 +82,7 @@ export default class Give extends Component {
     }
 
     return [
-      <p data-tip data-for="giveHelp" className="help-icon">
+      <p data-tip data-for="giveHelp" className="help-icon" key="giveHelp">
         <FiHelpCircle />
       </p>,
       <TextField
@@ -92,6 +92,7 @@ export default class Give extends Component {
         leadingIcon={<FcKey />}
         trailingIcon={<MdClearAll />}
         outlined
+        key="roomtextId"
       >
         <Input
           value={this.state.roomId}
@@ -105,6 +106,7 @@ export default class Give extends Component {
         leadingIcon={<FcPortraitMode />}
         trailingIcon={<MdClearAll />}
         outlined
+        key="nameId"
       >
         <Input
           value={this.state.hostName}
@@ -115,9 +117,11 @@ export default class Give extends Component {
         disabled={this.state.roomId && this.state.hostName ? false : true}
         text="Join room"
         callback={this.checkRoomExists}
+        key="giveButton"
       />,
       this.state.redirect && (
         <Redirect
+          key="giveredirect"
           to={{
             pathname: "/room/" + this.state.roomId,
             state: {
@@ -126,12 +130,15 @@ export default class Give extends Component {
           }}
         />
       ),
-      <p className="give-error">{this.state.error} </p>,
+      <p className="give-error" key="giveError">
+        {this.state.error}{" "}
+      </p>,
       <ReactTooltip
         id="giveHelp"
         place="top"
         effect="solid"
         aria-haspopup="true"
+        key="giveHelpTooltip"
       >
         <ul>
           <li>Enter joining room id</li>

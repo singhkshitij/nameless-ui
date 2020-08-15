@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import "./header.css";
 import { IconContext } from "react-icons";
-import {
-  IoMdArrowBack,
-  IoMdDownload,
-  IoLogoGithub,
-} from "react-icons/io";
+import { IoMdArrowBack, IoMdDownload, IoLogoGithub } from "react-icons/io";
 import UserDetails from "../../components/userDetails/userDetails";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import IconMenu from "@bit/take2.components.icon-menu";
@@ -82,7 +78,7 @@ export default class Header extends Component {
             <IoMdArrowBack />
           </IconContext.Provider>
         </Link>
-        {this.state.detailsPage && [
+        {this.state.detailsPage && (
           <div className="header-details">
             <SubHeading
               text={this.state.title}
@@ -90,14 +86,14 @@ export default class Header extends Component {
               color="#34495e"
               capitalise
             />
-          </div>,
-        ]}
+          </div>
+        )}
         {this.state.chatPage && [
-          <div className="header-details">
+          <div className="header-details" key="headerDetails">
             <Gravatar text={this.state.name} size="30px" />
             <UserDetails text={this.state.name} size="20px" color="#34495e" />
           </div>,
-          <div className="header-actions">
+          <div className="header-actions" key="headerAction">
             <IoLogoGithub
               className="github-icon"
               onClick={() =>
@@ -115,6 +111,7 @@ export default class Header extends Component {
             hideProgressBar
             newestOnTop={true}
             closeOnClick
+            key="toastContainer"
           />,
         ]}
       </div>

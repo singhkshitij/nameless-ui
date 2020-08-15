@@ -48,8 +48,8 @@ export default class Dashboard extends Component {
       );
     }
     return [
-      <div className="left">
-        <div className="centered">
+      <div className="left" key="landingpage">
+        <div className="centered" key="centered">
           <Heading text="nameléss" withIcon="/assets/images/anonymous.png" />
           <Spacer space="20px" />
           <SubHeading text="An anonymous feedback messenger 👩👨" size="1.5em" />
@@ -78,7 +78,7 @@ export default class Dashboard extends Component {
           </Link>
         </div>
       </div>,
-      <div className="right">
+      <div className="right" key="right">
         <div className="centered">
           <img
             src="/assets/images/users.svg"

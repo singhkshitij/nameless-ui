@@ -81,7 +81,7 @@ export default class Take extends Component {
     }
 
     return [
-      <p data-tip data-for="giveHelp" className="help-icon">
+      <p data-tip data-for="giveHelp" className="help-icon" key="giveHelp">
         <FiHelpCircle />
       </p>,
       <TextField
@@ -91,6 +91,7 @@ export default class Take extends Component {
         leadingIcon={<FcPortraitMode />}
         trailingIcon={<MdClearAll />}
         outlined
+        key="taketextfield"
       >
         <Input
           value={this.state.hostName}
@@ -101,24 +102,29 @@ export default class Take extends Component {
         disabled={this.state.linkEnabled ? false : true}
         text="Create room"
         callback={this.createRoom}
+        key="buttontake"
       />,
       this.state.redirect && (
         <Redirect
+          key="redirectake"
           to={{
             pathname: "/room/" + this.getRoomID(),
             state: {
               name: this.state.hostName,
-              isHost: true
+              isHost: true,
             },
           }}
         />
       ),
-      <p className="give-error">{this.state.error} </p>,
+      <p className="give-error" key="takerror">
+        {this.state.error}{" "}
+      </p>,
       <ReactTooltip
         id="giveHelp"
         place="top"
         effect="solid"
         aria-haspopup="true"
+        key="taketooltip"
       >
         <p>Enter host name. Keep it original !</p>
       </ReactTooltip>,
