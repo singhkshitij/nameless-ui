@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./header.css";
 import { IconContext } from "react-icons";
 import { IoMdArrowBack, IoMdDownload, IoLogoGithub } from "react-icons/io";
+import { MdFeedback } from "react-icons/md";
 import UserDetails from "../../components/userDetails/userDetails";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import IconMenu from "@bit/take2.components.icon-menu";
@@ -57,12 +58,29 @@ export default class Header extends Component {
   }
 
   render() {
-    const items = [
+    const menuItemsForHost = [
       {
         icon: <IoMdDownload />,
         label: "Export as CSV",
         onClick: () => {
           this.exportData();
+        },
+      },
+      {
+        icon: <MdFeedback />,
+        label: "Give feedback",
+        onClick: () => {
+          console.log("Give feedback");
+        },
+      },
+    ];
+
+    const menuItemsForParticipant = [
+      {
+        icon: <MdFeedback />,
+        label: "Give feedback",
+        onClick: () => {
+          console.log("Give feedback");
         },
       },
     ];
@@ -103,7 +121,11 @@ export default class Header extends Component {
             <CopyToClipboard text={this.state.invite} onCopy={notify}>
               <button className="invite-button">Invite</button>
             </CopyToClipboard>
-            {this.props.isHost && <IconMenu items={items} />}
+            <IconMenu
+              items={
+                this.props.isHost ? menuItemsForHost : menuItemsForParticipant
+              }
+            />
           </div>,
           <ToastContainer
             position="top-right"
