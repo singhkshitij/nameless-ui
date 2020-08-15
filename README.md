@@ -54,6 +54,7 @@
 ## Installation
 * You can directly head over to <a href="http://namelss.com" target="_blank">namelss.com</a> on Desktop, tablet or mobile devices (Yes, it is responsive)
 * Since it is also [PWA](https://love2dev.com/blog/progressive-web-app-features/) , you can install it as an lightweight app on any Mobile/Desktop device. Just click on **Add to home screen** when you see it. 
+[![Namelss PWA][namelss-pwa]](https://namelss.com)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -66,7 +67,7 @@
     - No limit on number of people that can join the same room at a time
     - No context of the data being stored
 
-[![Product Name Screen Shot][product-screenshot]](https://namelss.com)
+[![Namelss Screen Shot][product-screenshot]](https://namelss.com)
 
 ### Use Cases
 * A manager taking feedback from his/her team members
@@ -160,3 +161,4 @@ Kshitij Singh - [@ikshitijsingh](https://twitter.com/ikshitijsingh) - <a href="m
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/ikshitijsingh/
 [product-screenshot]: https://github.com/singhkshitij/nameless-ui/blob/master/namelss-ss.png
+[namelss-pwa]: https://github.com/singhkshitij/nameless-ui/blob/master/namelss-pwa.png
