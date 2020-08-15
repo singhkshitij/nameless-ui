@@ -23,7 +23,9 @@ export default class Room extends Component {
       name: this.props.location.state ? this.props.location.state.name : "",
       data: [],
       error: "",
-      isHost: this.props.location.state ? this.props.location.state.isHost : false,
+      isHost: this.props.location.state
+        ? this.props.location.state.isHost
+        : false,
       redirect: this.props.location.state ? true : false,
     };
   }
@@ -160,7 +162,7 @@ export default class Room extends Component {
 
   getRoomDetails() {
     return [
-      <div className="details-title">
+      <div className="details-title" key="detailsTitle">
         <SubHeading text="Join room" size="1em" color="#909090" />
       </div>,
       <TextField
@@ -169,6 +171,7 @@ export default class Room extends Component {
         leadingIcon={<FcKey />}
         trailingIcon={<MdClearAll />}
         outlined
+        key="detailsroomId"
       >
         <Input
           value={this.state.uid}
@@ -183,13 +186,19 @@ export default class Room extends Component {
         leadingIcon={<FcPortraitMode />}
         trailingIcon={<MdClearAll />}
         outlined
+        key="details-textfiled"
       >
         <Input value={this.state.name} onChange={(e) => this.validateName(e)} />
       </TextField>,
-      this.state.name && (
-        <Button text="Enter room" callback={this.checkRoomExists} />
-      ),
-      <p className="give-error">{this.state.error} </p>,
+      <Button
+        text="Enter room"
+        callback={this.checkRoomExists}
+        disabled={this.state.name ? false : true}
+        key="details-button"
+      />,
+      <p className="give-error" key="detailserror">
+        {this.state.error}{" "}
+      </p>,
     ];
   }
 

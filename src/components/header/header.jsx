@@ -70,7 +70,7 @@ export default class Header extends Component {
         icon: <MdFeedback />,
         label: "Give feedback",
         onClick: () => {
-          console.log("Give feedback");
+          window.open("https://github.com/singhkshitij/nameless-ui/issues/new");
         },
       },
     ];
@@ -80,7 +80,7 @@ export default class Header extends Component {
         icon: <MdFeedback />,
         label: "Give feedback",
         onClick: () => {
-          console.log("Give feedback");
+          window.open("https://github.com/singhkshitij/nameless-ui/issues/new");
         },
       },
     ];
