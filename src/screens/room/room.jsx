@@ -204,7 +204,7 @@ export default class Room extends Component {
 
   render() {
     return this.state.name !== "" && this.state.redirect ? (
-      <div className="room">
+      <div className="room" >
         <Header
           chatPage
           hostName={this.state.name}

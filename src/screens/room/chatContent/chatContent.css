@@ -2,5 +2,9 @@
   max-height: 100vh;
   min-height: 100vh;
   min-width: 100vw;
-  background-color: #f3fbfd;
+  background-color: #ebfbff;
+  background-image: url('/assets/images/background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
 }
