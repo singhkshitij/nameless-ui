@@ -137,7 +137,7 @@ export default class Room extends Component {
     await this.setState({ loading: true });
 
     let host = Constants.serverHostKey;
-    const url = process.env[host] + "/api/v1/room/" + this.state.uid;
+    const url = process.env[host] + "/api/v1/active/room/" + this.state.uid;
     var self = this;
 
     await axios
