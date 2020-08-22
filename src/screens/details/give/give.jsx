@@ -54,7 +54,7 @@ export default class Give extends Component {
 
   checkRoomExists = async () => {
     await this.setState({ loading: true });
-    
+
     const url = Urls.checkIfRoomExists(this.state.roomId);
     var self = this;
 
@@ -64,7 +64,10 @@ export default class Give extends Component {
         if (res.data.data.active) {
           self.setState({ redirect: true, loading: false });
         } else {
-          self.setState({ error: "😕 No such room exists !", loading: false });
+          self.setState({
+            error: "😕 " + res.data.data.message,
+            loading: false,
+          });
         }
       })
       .catch((error) => {
