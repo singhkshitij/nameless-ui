@@ -90,7 +90,6 @@ export default class Room extends Component {
     };
 
     this.ws.onclose = () => {
-      //console.log("disconnected");
       this.establishWsConnection();
     };
   }

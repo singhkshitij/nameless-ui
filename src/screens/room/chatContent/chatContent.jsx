@@ -8,7 +8,7 @@ export default class ChatContent extends Component {
     return (
       <div className="chat-content">
         {this.props.data.length <= 0 ? (
-          <div style={{ marginTop: "60px" }}>
+          <div>
             <LoadingIndicator round/>
           </div>
         ) : (

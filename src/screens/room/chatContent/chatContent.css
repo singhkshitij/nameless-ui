@@ -8,3 +8,7 @@
   background-size: cover;
   background-position: 100%;
 }
+
+.loading-indicator {
+  padding-top: 55px;
+}
