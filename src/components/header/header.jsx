@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./header.css";
 import { IconContext } from "react-icons";
 import { IoMdArrowBack, IoMdDownload, IoLogoGithub } from "react-icons/io";
+import { FaDoorOpen, FaDoorClosed } from "react-icons/fa";
 import { MdFeedback } from "react-icons/md";
 import UserDetails from "../../components/userDetails/userDetails";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -14,6 +15,8 @@ import { Link } from "react-router-dom";
 import CryptoJS from "crypto-js";
 import Constants from "../../constants";
 import Gravatar from "../avatar/avatar";
+import Urls from "../../urls";
+import axios from "axios";
 
 export default class Header extends Component {
   constructor(props) {
@@ -57,35 +60,64 @@ export default class Header extends Component {
     });
   }
 
+  toggleRoomVisibilty = async () => {
+    const url = Urls.toggleRoomVisibility(this.props.uid);
+    await axios
+      .put(url)
+      .then((res) => {
+        if (res.data.status === "success") {
+          this.props.updateRoomStatus(res.data.data.status);
+          res.data.data.status
+            ? toast.info("Room has been opened up")
+            : toast.dark("Room has been closed");
+        }
+      })
+  };
+
+  getMenuItems() {
+    const fixedItems = [
+      {
+        icon: <MdFeedback />,
+        label: "Report issue",
+        onClick: () => {
+          window.open("https://github.com/singhkshitij/nameless-ui/issues/new");
+        },
+      },
+    ];
+
+    const downLoadDataItems = {
+      icon: <IoMdDownload />,
+      label: "Export as csv",
+      onClick: () => {
+        this.exportData();
+      },
+    };
+
+    const roomCloseItem = {
+      icon: <FaDoorClosed />,
+      label: "Close room",
+      onClick: () => {
+        this.toggleRoomVisibilty();
+      },
+    };
+
+    const roomOpenItem = {
+      icon: <FaDoorOpen />,
+      label: "Open room",
+      onClick: () => {
+        this.toggleRoomVisibilty();
+      },
+    };
+
+    if (this.props.isHost && this.props.isRoomOpen) {
+      fixedItems.push(downLoadDataItems, roomCloseItem);
+    } else if (this.props.isHost && !this.props.isRoomOpen) {
+      fixedItems.push(downLoadDataItems, roomOpenItem);
+    }
+    return fixedItems.reverse();
+  }
+
   render() {
-
-    const menuItemsForHost = [
-      {
-        icon: <IoMdDownload />,
-        label: "Export as CSV",
-        onClick: () => {
-          this.exportData();
-        },
-      },
-      {
-        icon: <MdFeedback />,
-        label: "Give feedback",
-        onClick: () => {
-          window.open("https://github.com/singhkshitij/nameless-ui/issues/new");
-        },
-      },
-    ];
-
-    const menuItemsForParticipant = [
-      {
-        icon: <MdFeedback />,
-        label: "Give feedback",
-        onClick: () => {
-          window.open("https://github.com/singhkshitij/nameless-ui/issues/new");
-        },
-      },
-    ];
-
     const notify = () => toast.success("Invite link has been copied !");
 
     return (
@@ -122,11 +154,7 @@ export default class Header extends Component {
             <CopyToClipboard text={this.state.invite} onCopy={notify}>
               <button className="invite-button">Invite</button>
             </CopyToClipboard>
-            <IconMenu
-              items={
-                this.props.isHost ? menuItemsForHost : menuItemsForParticipant
-              }
-            />
+            <IconMenu items={this.getMenuItems()} />
           </div>,
           <ToastContainer
             position="top-right"

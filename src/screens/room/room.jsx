@@ -21,6 +21,7 @@ export default class Room extends Component {
     super(props);
     this.sendMessage = this.sendMessage.bind(this);
     this.closeTour = this.closeTour.bind(this);
+    this.updateRoomStatus = this.updateRoomStatus.bind(this);
     this.state = {
       uid: this.props.match.params.url,
       name: this.props.location.state ? this.props.location.state.name : "",
@@ -31,6 +32,7 @@ export default class Room extends Component {
         : false,
       redirect: this.props.location.state ? true : false,
       roomTourTaken: false,
+      isRoomOpen: true,
     };
   }
 
@@ -103,7 +105,10 @@ export default class Room extends Component {
       .get(url)
       .then((res) => {
         if (res.data.data) {
-          this.setState({ data: res.data.data });
+          this.setState({
+            data: res.data.data.chats,
+            isRoomOpen: res.data.data.isOpen,
+          });
           this.establishWsConnection();
         } else {
           this.setState({ error: "😕 Failed to get chat history !" });
@@ -148,7 +153,10 @@ export default class Room extends Component {
             this.getChatHistory();
           }
         } else {
-          self.setState({ error: "😕 No such room exists !", loading: false });
+          self.setState({
+            error: "😕 " + res.data.data.message,
+            loading: false,
+          });
         }
       })
       .catch((error) => {
@@ -158,6 +166,10 @@ export default class Room extends Component {
         });
       });
   };
+
+  updateRoomStatus(status) {
+    this.setState({ isRoomOpen: status });
+  }
 
   getRoomDetails() {
     return [
@@ -255,6 +267,9 @@ export default class Room extends Component {
           pathname={this.props.location.pathname}
           dataForExport={this.state.data}
           isHost={this.state.isHost}
+          updateRoomStatus={this.updateRoomStatus}
+          isRoomOpen={this.state.isRoomOpen}
+          uid={this.state.uid}
         />
         <ChatContent data={this.state.data} owner={this.state.name} />
         <div className="floating-chatBox">

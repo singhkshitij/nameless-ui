@@ -23,6 +23,9 @@ const ServerUrls = {
   getWSconnection: function (uid, name) {
     return getWSHost() + "/" + uid + "?" + name;
   },
+  toggleRoomVisibility: function (uid) {
+    return getHost() +  "/api/v1/room/" + uid + "/visibility/toggle";
+  },
 };
 
 export default ServerUrls;
