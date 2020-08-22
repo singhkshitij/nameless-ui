@@ -58,6 +58,7 @@ export default class Header extends Component {
   }
 
   render() {
+
     const menuItemsForHost = [
       {
         icon: <IoMdDownload />,

@@ -56,7 +56,7 @@ export default class Give extends Component {
     await this.setState({ loading: true });
 
     let host = Constants.serverHostKey;
-    const url = process.env[host] + "/api/v1/room/" + this.state.roomId;
+    const url = process.env[host] + "/api/v1/active/room/" + this.state.roomId;
     var self = this;
 
     await axios
