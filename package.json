@@ -29,7 +29,9 @@
     "react-spinners": "^0.9.0",
     "react-toastify": "^6.0.8",
     "react-tooltip": "^4.2.7",
-    "react-websocket": "^2.1.0"
+    "react-websocket": "^2.1.0",
+    "reactour": "^1.18.0",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -12,6 +12,7 @@ import Button from "../../components/button/button";
 import { FcPortraitMode, FcKey } from "react-icons/fc";
 import { MdClearAll } from "react-icons/md";
 import CryptoJS from "crypto-js";
+import Tour from "reactour";
 
 import "./room.css";
 
@@ -19,6 +20,7 @@ export default class Room extends Component {
   constructor(props) {
     super(props);
     this.sendMessage = this.sendMessage.bind(this);
+    this.closeTour = this.closeTour.bind(this);
     this.state = {
       uid: this.props.match.params.url,
       name: this.props.location.state ? this.props.location.state.name : "",
@@ -28,6 +30,7 @@ export default class Room extends Component {
         ? this.props.location.state.isHost
         : false,
       redirect: this.props.location.state ? true : false,
+      roomTourTaken: false,
     };
   }
 
@@ -198,6 +201,51 @@ export default class Room extends Component {
     ];
   }
 
+  getTourSteps() {
+    return [
+      {
+        selector: "room",
+        content: "Congrats on creating room. Lets take a quick tour...",
+      },
+      {
+        selector: ".invite-button",
+        content:
+          "Invite more people by copying the invite link and sharing with them",
+      },
+      {
+        selector: ".entry-bubble-aligned",
+        content: "You will be notified when someone joins the room",
+      },
+      {
+        selector: ".MuiButtonBase-root",
+        content: () => (
+          <div>
+            <p>Explore other options such as :</p>
+            <ul>
+              <li>Export chats as CSV anytime </li>
+              <li>Close room entry for new participants</li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        selector: ".message-box",
+        content: "Voila, You can start sending those rocking messages now.",
+      },
+    ];
+  }
+
+  showRoomTour() {
+    return !localStorage.getItem("roomTourTaken") && !this.state.roomTourTaken;
+  }
+
+  closeTour() {
+    this.setState({
+      roomTourTaken: !this.state.roomTourTaken,
+    });
+    localStorage.setItem("roomTourTaken", true);
+  }
+
   render() {
     return this.state.name !== "" && this.state.redirect ? (
       <div className="room">
@@ -212,6 +260,11 @@ export default class Room extends Component {
         <div className="floating-chatBox">
           <MessageBox messageHook={this.sendMessage} />
         </div>
+        <Tour
+          steps={this.getTourSteps()}
+          isOpen={this.showRoomTour()}
+          onRequestClose={this.closeTour}
+        />
       </div>
     ) : (
       <div className="details-page" style={this.lpStyle}>
