@@ -3,17 +3,11 @@ import Heading from "../../components/heading/heading";
 import SubHeading from "../../components/subHeading/subHeading";
 import Button from "../../components/button/button";
 import Spacer from "../../components/spacer/spacer";
-import LoadingIndicator from "../../components/loadingIndicator/loadingIndicator";
+import PreCacheImg from "react-precache-img";
 import "./landingPage.css";
 import { Link } from "react-router-dom";
 
 export default class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-    };
-  }
 
   lpStyle = {
     background: 'url("/assets/images/background.svg")',
@@ -25,28 +19,10 @@ export default class Dashboard extends Component {
     overflowX: "hidden",
     minWidth: "100vw",
     minHeight: "100vh",
-    userSelect: 'none'
+    userSelect: "none",
   };
-
-  componentDidMount() {
-    const imgs = [
-      "/assets/images/users.svg",
-      "/assets/images/anonymous.png",
-      "/assets/images/background.svg",
-      "/assets/images/bg.png",
-    ];
-    imgs.forEach((image) => (new Image().src = image.src));
-    this.setState({ loading: false });
-  }
-
+  
   renderContent() {
-    if (this.state.loading) {
-      return (
-        <div style={{ height: "100vh", width: "100vw" }}>
-          <LoadingIndicator />
-        </div>
-      );
-    }
     return [
       <div className="left" key="landingpage">
         <div className="centered" key="centered">
@@ -54,7 +30,11 @@ export default class Dashboard extends Component {
           <Spacer space="20px" />
           <SubHeading text="An realtime feedback messenger" size="1.5em" />
           <Spacer space="20px" />
-          <SubHeading text="🚫 No login required · 🎭 Go Anonymous" size="1em" color="#263238"/>
+          <SubHeading
+            text="🚫 No login required · 🎭 Go Anonymous"
+            size="1em"
+            color="#263238"
+          />
           <Spacer space="20px" />
           <Link
             to={{
@@ -91,8 +71,16 @@ export default class Dashboard extends Component {
   }
 
   render() {
+    const host = window.location.href;
     return (
       <div className="landing-page" style={this.lpStyle}>
+        <PreCacheImg
+          images={[
+            host + "/assets/images/users.svg",
+            host + "/assets/images/anonymous.png",
+            host + "/assets/images/background.svg",
+          ]}
+        />
         {this.renderContent()}
       </div>
     );
