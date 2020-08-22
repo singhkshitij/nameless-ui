@@ -7,9 +7,9 @@ import { FcKey, FcPortraitMode } from "react-icons/fc";
 import { FiHelpCircle } from "react-icons/fi";
 import { MdClearAll } from "react-icons/md";
 import axios from "axios";
-import Constants from "../../../constants";
 import LoadingIndicator from "../../../components/loadingIndicator/loadingIndicator";
 import ReactTooltip from "react-tooltip";
+import Urls from "../../../urls";
 import "./give.css";
 
 export default class Give extends Component {
@@ -54,9 +54,8 @@ export default class Give extends Component {
 
   checkRoomExists = async () => {
     await this.setState({ loading: true });
-
-    let host = Constants.serverHostKey;
-    const url = process.env[host] + "/api/v1/active/room/" + this.state.roomId;
+    
+    const url = Urls.checkIfRoomExists(this.state.roomId);
     var self = this;
 
     await axios

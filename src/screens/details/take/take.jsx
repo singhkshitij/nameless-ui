@@ -7,7 +7,7 @@ import { FcPortraitMode } from "react-icons/fc";
 import { MdClearAll } from "react-icons/md";
 import { nanoid } from "nanoid";
 import axios from "axios";
-import Constants from "../../../constants";
+import Urls from "../../../urls";
 import LoadingIndicator from "../../../components/loadingIndicator/loadingIndicator";
 import ReactTooltip from "react-tooltip";
 import { FiHelpCircle } from "react-icons/fi";
@@ -44,12 +44,8 @@ export default class Take extends Component {
     await this.setState({ loading: true });
 
     const uid = nanoid(10);
-    //Move logic to create room here and pass as state object
-    //Send room info to server to store data
-    //remove redis functionality from service
     var self = this;
-    let host = Constants.serverHostKey;
-    const url = process.env[host] + "/api/v1/room/" + uid;
+    const url = Urls.createRoom(uid);
 
     await axios
       .post(url, { host: this.state.hostName })

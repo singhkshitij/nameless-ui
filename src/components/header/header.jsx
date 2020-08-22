@@ -25,7 +25,7 @@ export default class Header extends Component {
       detailsPage: this.props.detailsPage,
       title: this.props.title || "",
       invite:
-        "Hey there, i am waiting for you in namelss room. \nPlease join here :\n\n" +
+        "Hey there, i am waiting for you in namelss room. ⌛ \nPlease join here :\n\n" +
           window.location.origin +
           this.props.pathname || window.location.origin,
     };

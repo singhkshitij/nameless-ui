@@ -3,6 +3,7 @@ import Header from "../../components/header/header";
 import ChatContent from "./chatContent/chatContent";
 import MessageBox from "./messageBox/messageBox";
 import Constants from "../../constants";
+import Urls from "../../urls";
 import axios from "axios";
 import TextField, { HelperText, Input } from "@material/react-text-field";
 import SubHeading from "../../components/subHeading/subHeading";
@@ -74,9 +75,7 @@ export default class Room extends Component {
   }
 
   establishWsConnection() {
-    let host = Constants.wsHost;
-    const url =
-      process.env[host] + "/" + this.state.uid + "?" + this.state.name;
+    const url = Urls.getWSconnection(this.state.uid, this.state.name);
 
     this.ws = new WebSocket(url);
 
@@ -95,8 +94,7 @@ export default class Room extends Component {
   }
 
   getChatHistory = async () => {
-    let host = Constants.serverHostKey;
-    const url = process.env[host] + "/api/v1/chats/" + this.state.uid;
+    const url = Urls.getChatHistory(this.state.uid);
 
     await axios
       .get(url)
@@ -135,8 +133,7 @@ export default class Room extends Component {
   checkRoomExists = async () => {
     await this.setState({ loading: true });
 
-    let host = Constants.serverHostKey;
-    const url = process.env[host] + "/api/v1/active/room/" + this.state.uid;
+    const url = Urls.checkIfRoomExists(this.state.uid);
     var self = this;
 
     await axios
@@ -203,7 +200,7 @@ export default class Room extends Component {
 
   render() {
     return this.state.name !== "" && this.state.redirect ? (
-      <div className="room" >
+      <div className="room">
         <Header
           chatPage
           hostName={this.state.name}
