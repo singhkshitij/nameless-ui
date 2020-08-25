@@ -8,7 +8,6 @@ import "./landingPage.css";
 import { Link } from "react-router-dom";
 
 export default class Dashboard extends Component {
-
   lpStyle = {
     background: 'url("/assets/images/background.svg")',
     backgroundPosition: "100%",
@@ -21,7 +20,7 @@ export default class Dashboard extends Component {
     minHeight: "100vh",
     userSelect: "none",
   };
-  
+
   renderContent() {
     return [
       <div className="left" key="landingpage">
@@ -56,6 +55,18 @@ export default class Dashboard extends Component {
           >
             <Button text="Give feedback" />
           </Link>
+          <a
+            href="https://www.producthunt.com/posts/namelss?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-namelss"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=242938&theme=dark"
+              alt="Namelss - An anonymous feedback platform with realtime chat rooms !  | Product Hunt Embed"
+              width="220px"
+              height="50px"
+            />
+          </a>
         </div>
       </div>,
       <div className="right" key="right">
