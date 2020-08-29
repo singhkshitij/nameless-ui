@@ -13,6 +13,7 @@ import { FcPortraitMode, FcKey } from "react-icons/fc";
 import { MdClearAll } from "react-icons/md";
 import CryptoJS from "crypto-js";
 import Tour from "reactour";
+import ReactGA from "react-ga";
 
 import "./room.css";
 
@@ -259,6 +260,8 @@ export default class Room extends Component {
   }
 
   render() {
+    ReactGA.initialize("UA-114302632-5");
+    ReactGA.pageview(window.location.pathname + window.location.search);
     return this.state.name !== "" && this.state.redirect ? (
       <div className="room">
         <Header
