@@ -25,9 +25,11 @@
     <br />
     <a href="https://docs.google.com/document/d/1Yhp8g4n9ISx1rKzYzL-qt9fs8BNQRiLf0agn9uY8sFk/edit">ADR doc</a>
     ·
-    <a href="https://github.com/singhkshitij/nameless-ui/issues">Report Bug</a>
+    <a href="https://github.com/singhkshitij/nameless-ui/issues/">Report Bug</a>
     ·
-    <a href="https://github.com/singhkshitij/nameless-ui/issues">Request Feature</a>
+    <a href="https://github.com/singhkshitij/nameless-ui/issues/new">Request Feature</a>
+    ·
+    <a href="https://github.com/singhkshitij/nameless">Backend</a>
   </p>
 </p>
 
@@ -58,9 +60,19 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-* No login no auth required
-* Real Time feedback sessions
-* E2E encrypted chats
+* 🙅 No login/auth required by host or participants
+* 🎭 Participants can be totally anonymous
+* ✈️ Unlimited participants can join
+* 📥 Host can export feedbacks/chats as CSV
+* 🔒Host can lock room for entry when required participants has joined in.
+*⏳Realtime chatrooms and sessions
+
+Bonus :
+* 📱App is a PWA so it can be installed on any device
+* 🔐 Conversations are E2E encrypted
+* 🕸️ Minimal UI
+* 📟 Open Source : https://github.com/singhkshitij/nameless-ui
+
 * It helps with :
     - People giving feedback can be totally anonymous
     - Host can interact and introspect feedback with audience realtime
