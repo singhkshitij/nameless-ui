@@ -67,12 +67,11 @@
 * 🔒Host can lock room for entry when required participants has joined in.
 *⏳Realtime chatrooms and sessions
 
-Bonus :
+### Bonus :
 * 📱App is a PWA so it can be installed on any device
 * 🔐 Conversations are E2E encrypted
 * 🕸️ Minimal UI
 * 📟 Open Source : https://github.com/singhkshitij/nameless-ui
-
 * It helps with :
     - People giving feedback can be totally anonymous
     - Host can interact and introspect feedback with audience realtime
