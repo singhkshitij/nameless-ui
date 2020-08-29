@@ -3,7 +3,6 @@ import Heading from "../../components/heading/heading";
 import SubHeading from "../../components/subHeading/subHeading";
 import Button from "../../components/button/button";
 import Spacer from "../../components/spacer/spacer";
-import PreCacheImg from "react-precache-img";
 import "./landingPage.css";
 import { Link } from "react-router-dom";
 
@@ -82,16 +81,8 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    const host = window.location.href;
     return (
       <div className="landing-page" style={this.lpStyle}>
-        <PreCacheImg
-          images={[
-            host + "/assets/images/users.svg",
-            host + "/assets/images/anonymous.png",
-            host + "/assets/images/background.svg",
-          ]}
-        />
         {this.renderContent()}
       </div>
     );
