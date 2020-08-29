@@ -65,7 +65,7 @@
 * ✈️ Unlimited participants can join
 * 📥 Host can export feedbacks/chats as CSV
 * 🔒Host can lock room for entry when required participants has joined in.
-*⏳Realtime chatrooms and sessions
+* ⏳Realtime chatrooms and sessions
 
 ### Bonus :
 * 📱App is a PWA so it can be installed on any device
