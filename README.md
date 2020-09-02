@@ -81,7 +81,7 @@
 [![Namelss Screen Shot][product-screenshot]](https://namelss.com)
 
 ### Use Cases
-* A manager taking feedback from his/her team members
+* A manager taking feedback from their team members
 * A online teacher requesting feedback from students
 * Post presentation feedbacks in conferences
 * More real world scenarios you can think of...
